@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-06T08:43:55.546Z</updated>
+  <updated>2015-12-06T12:33:55.657Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -19,12 +19,15 @@
     <link href="http://zc14.github.io/2015/12/06/%E4%B8%B4%E6%97%B6%E7%AC%94%E8%AE%B0/"/>
     <id>http://zc14.github.io/2015/12/06/临时笔记/</id>
     <published>2015-12-06T07:53:01.000Z</published>
-    <updated>2015-12-06T08:43:55.546Z</updated>
-    <content type="html"><![CDATA[<h2 id="记录临时学习内容">记录临时学习内容</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib  运用spring拦截器，进行用户操作行为的记录[user/ip/<span class="function"><span class="keyword">method</span>/<span class="title">time</span>]</span><br><span class="line">           <span class="title">apache</span> <span class="title">commons</span> <span class="title">ArrayUtils</span>.<span class="title">contains</span><span class="params">(xx,xx)</span> ,可以增加某些操作的日志过滤</span></span><br></pre></td></tr></table></figure>
-<h3 id="享元模式">享元模式</h3><pre><code>克隆 或者 从享元工厂的<span class="preprocessor">Map</span>中获取 
+    <updated>2015-12-06T12:33:55.657Z</updated>
+    <content type="html"><![CDATA[<h1 id="记录临时学习内容">记录临时学习内容</h1><h2 id="提高性能的5种设计模式">提高性能的5种设计模式</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib  运用spring拦截器，进行用户操作行为的记录[user/ip/<span class="function"><span class="keyword">method</span>/<span class="title">time</span>]</span><br><span class="line">           <span class="title">apache</span> <span class="title">commons</span> <span class="title">ArrayUtils</span>.<span class="title">contains</span><span class="params">(xx,xx)</span> ,可以增加某些操作的日志过滤</span></span><br></pre></td></tr></table></figure>
+<h3 id="享元模式">享元模式</h3>  <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心：克隆 或者 从享元工厂的<span class="preprocessor">Map</span>中获取</span><br></pre></td></tr></table></figure>
+<h3 id="装饰者模式">装饰者模式</h3>  <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心：动态添加对象的功能，如java中的<span class="built_in">io</span>类</span><br></pre></td></tr></table></figure>
+<h3 id="观察者模式">观察者模式</h3><pre><code>主题<span class="keyword">Subject </span>抽象/具体 (添加/删除/循环通知)
+观察者Observer update
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="记录临时学习内容">记录临时学习内容</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight oxygene"><table><tr><td class="gutte]]>
+    <![CDATA[<h1 id="记录临时学习内容">记录临时学习内容</h1><h2 id="提高性能的5种设计模式">提高性能的5种设计模式</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight]]>
     </summary>
     
   </entry>
