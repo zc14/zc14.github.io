@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-06T13:44:59.007Z</updated>
+  <updated>2015-12-06T13:49:00.349Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -18,9 +18,10 @@
     <title></title>
     <link href="http://zc14.github.io/2015/12/06/markdown/"/>
     <id>http://zc14.github.io/2015/12/06/markdown/</id>
-    <published>2015-12-06T13:44:59.106Z</published>
-    <updated>2015-12-06T13:44:59.007Z</updated>
-    <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><p><strong>加粗</strong><br><em>斜体</em><br>这个是<code>行内代码</code>，好玩</p>
+    <published>2015-12-06T13:49:00.349Z</published>
+    <updated>2015-12-06T13:49:00.349Z</updated>
+    <content type="html"><![CDATA[<p>title: markdown快速入门<br>date: 2015-12-06 21:48:23<br>categories: markdown<br>tags: [markdown]<br>description: 简单学习markdown</p>
+<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><p><strong>加粗</strong><br><em>斜体</em><br>这个是<code>行内代码</code>，好玩</p>
 <ol>
 <li>你好</li>
 <li>我好</li>
@@ -38,7 +39,8 @@
 <p>==kkkkkkkkk==<br>| 姓名 | 学号 |<br>|——–|——–|<br>|      张三  |       002 |</p>
 <!--注释-->]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><p]]>
+    <![CDATA[<p>title: markdown快速入门<br>date: 2015-12-06 21:48:23<br>categories: markdown<br>tags: [markdown]<br>description: 简单学习markdown</p>
+<h1 id="一级标]]>
     </summary>
     
   </entry>
