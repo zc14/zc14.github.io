@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-06T07:22:37.892Z</updated>
+  <updated>2015-12-06T07:42:38.274Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -18,20 +18,18 @@
     <title><![CDATA[Hello World]]></title>
     <link href="http://zc14.github.io/2015/12/06/hello-world/"/>
     <id>http://zc14.github.io/2015/12/06/hello-world/</id>
-    <published>2015-12-06T07:37:29.937Z</published>
-    <updated>2015-12-06T07:22:37.892Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <published>2015-12-06T06:32:43.000Z</published>
+    <updated>2015-12-06T07:42:38.274Z</updated>
+    <content type="html"><![CDATA[<p>开始新的征程.</p>
+<h2 id="主标题">主标题</h2><h3 id="副标题">副标题</h3><h3 id="副标题-1">副标题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 命令行语句</span><br></pre></td></tr></table></figure>
+<p>更多信息: <a href="http://zc14.github.io/">More</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    <![CDATA[<p>开始新的征程.</p>
+<h2 id="主标题">主标题</h2><h3 id="副标题">副标题</h3><h3 id="副标题-1">副标题</h3><figure class="highlight bash"><table><tr><td class="gutter"]]>
     </summary>
+    
+      <category term="开始" scheme="http://zc14.github.io/tags/%E5%BC%80%E5%A7%8B/"/>
     
   </entry>
   
