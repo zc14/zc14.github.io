@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-06T07:49:07.676Z</updated>
+  <updated>2015-12-06T08:43:55.546Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[临时笔记]]></title>
+    <link href="http://zc14.github.io/2015/12/06/%E4%B8%B4%E6%97%B6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://zc14.github.io/2015/12/06/临时笔记/</id>
+    <published>2015-12-06T07:53:01.000Z</published>
+    <updated>2015-12-06T08:43:55.546Z</updated>
+    <content type="html"><![CDATA[<h2 id="记录临时学习内容">记录临时学习内容</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib  运用spring拦截器，进行用户操作行为的记录[user/ip/<span class="function"><span class="keyword">method</span>/<span class="title">time</span>]</span><br><span class="line">           <span class="title">apache</span> <span class="title">commons</span> <span class="title">ArrayUtils</span>.<span class="title">contains</span><span class="params">(xx,xx)</span> ,可以增加某些操作的日志过滤</span></span><br></pre></td></tr></table></figure>
+<h3 id="享元模式">享元模式</h3><pre><code>克隆 或者 从享元工厂的<span class="preprocessor">Map</span>中获取 
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="记录临时学习内容">记录临时学习内容</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight oxygene"><table><tr><td class="gutte]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hello World]]></title>
