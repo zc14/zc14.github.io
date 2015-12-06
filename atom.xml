@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-06T13:51:28.348Z</updated>
+  <updated>2015-12-06T14:07:16.198Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -19,8 +19,9 @@
     <link href="http://zc14.github.io/2015/12/06/markdown/"/>
     <id>http://zc14.github.io/2015/12/06/markdown/</id>
     <published>2015-12-06T13:48:23.000Z</published>
-    <updated>2015-12-06T13:51:28.348Z</updated>
-    <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><p><strong>加粗</strong><br><em>斜体</em><br>这个是<code>行内代码</code>，好玩</p>
+    <updated>2015-12-06T14:07:16.198Z</updated>
+    <content type="html"><![CDATA[<p>简单学习markdown<br><a id="more"></a></p>
+<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><p><strong>加粗</strong><br><em>斜体</em><br>这个是<code>行内代码</code>，好玩</p>
 <ol>
 <li>你好</li>
 <li>我好</li>
