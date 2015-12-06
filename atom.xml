@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[zc14]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://zc14.github.io/"/>
+  <updated>2015-12-06T06:06:22.268Z</updated>
+  <id>http://zc14.github.io/</id>
+  
+  <author>
+    <name><![CDATA[周聪]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[hello2]]></title>
+    <link href="http://zc14.github.io/2015/12/06/hello2/"/>
+    <id>http://zc14.github.io/2015/12/06/hello2/</id>
+    <published>2015-12-06T06:06:22.000Z</published>
+    <updated>2015-12-06T06:06:22.268Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[打卡开始]]></title>
+    <link href="http://zc14.github.io/2015/12/04/%E6%89%93%E5%8D%A1%E5%BC%80%E5%A7%8B/"/>
+    <id>http://zc14.github.io/2015/12/04/打卡开始/</id>
+    <published>2015-12-04T14:16:34.000Z</published>
+    <updated>2015-12-06T06:20:50.321Z</updated>
+    <content type="html"><![CDATA[<p>开始<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 这是放代码的地方</span><br></pre></td></tr></table></figure></p>
+<p>结束</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>开始<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><]]>
+    </summary>
+    
+      <category term="开始" scheme="http://zc14.github.io/tags/%E5%BC%80%E5%A7%8B/"/>
+    
+      <category term="哈哈" scheme="http://zc14.github.io/categories/%E5%93%88%E5%93%88/"/>
+    
+  </entry>
+  
+</feed>
