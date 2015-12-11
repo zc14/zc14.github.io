@@ -70,7 +70,7 @@
     <link href="http://zc14.github.io/2015/12/06/%E4%B8%B4%E6%97%B6%E7%AC%94%E8%AE%B0/"/>
     <id>http://zc14.github.io/2015/12/06/临时笔记/</id>
     <published>2015-12-06T07:53:01.000Z</published>
-    <updated>2015-12-11T12:49:23.708Z</updated>
+    <updated>2015-12-11T12:51:21.953Z</updated>
     <content type="html"><![CDATA[<p>[TOC]</p>
 <h1 id="记录临时学习内容">记录临时学习内容</h1><h2 id="Java的设计优化_提高性能的5种[设计模式]_^-^">Java的设计优化 提高性能的5种[设计模式] ^.^</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib</span><br><span class="line">           apache commons ArrayUtils.<span class="function"><span class="title">contains</span><span class="params">(xx,xx)</span></span> ,可以增加某些操作的日志过滤</span><br></pre></td></tr></table></figure>
 <p>  <strong>待完成题目</strong> <em>运用spring拦截器，进行用户操作行为的记录[user/ip/method/time]</em></p>
