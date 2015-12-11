@@ -70,18 +70,15 @@
     <link href="http://zc14.github.io/2015/12/06/%E4%B8%B4%E6%97%B6%E7%AC%94%E8%AE%B0/"/>
     <id>http://zc14.github.io/2015/12/06/临时笔记/</id>
     <published>2015-12-06T07:53:01.000Z</published>
-    <updated>2015-12-11T12:44:04.639Z</updated>
+    <updated>2015-12-11T12:49:23.708Z</updated>
     <content type="html"><![CDATA[<p>[TOC]</p>
-<h1 id="记录临时学习内容">记录临时学习内容</h1><h2 id="Java的设计优化_提高性能的5种[设计模式]_^-^">Java的设计优化 提高性能的5种[设计模式] ^.^</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib  </span><br><span class="line">           apache commons ArrayUtils.<span class="function"><span class="title">contains</span><span class="params">(xx,xx)</span></span> ,可以增加某些操作的日志过滤</span><br></pre></td></tr></table></figure>
+<h1 id="记录临时学习内容">记录临时学习内容</h1><h2 id="Java的设计优化_提高性能的5种[设计模式]_^-^">Java的设计优化 提高性能的5种[设计模式] ^.^</h2><h3 id="单例模式">单例模式</h3><h3 id="代理模式">代理模式</h3>  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">静态代理： 抽象接口/真实对象/代理对象--可用于[延迟加载]</span><br><span class="line">动态代理： jdk/cglib</span><br><span class="line">           apache commons ArrayUtils.<span class="function"><span class="title">contains</span><span class="params">(xx,xx)</span></span> ,可以增加某些操作的日志过滤</span><br></pre></td></tr></table></figure>
 <p>  <strong>待完成题目</strong> <em>运用spring拦截器，进行用户操作行为的记录[user/ip/method/time]</em></p>
 <h3 id="享元模式">享元模式</h3>  <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心：克隆 或者 从享元工厂的<span class="preprocessor">Map</span>中获取</span><br></pre></td></tr></table></figure>
 <h3 id="装饰者模式">装饰者模式</h3>  <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核心：动态添加对象的功能，如java中的<span class="built_in">io</span>类</span><br></pre></td></tr></table></figure>
-<h3 id="观察者模式">观察者模式</h3>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">    主题Subject 抽象/具体 (添加/删除/循环通知)</span></span><br><span class="line"><span class="code">    观察者Observer update</span></span><br><span class="line">  <span class="code">```</span>  </span><br><span class="line">  <span class="strong">__待完成题目__</span> <span class="emphasis">_考试系统-学生/考试_</span></span><br><span class="line"></span><br><span class="line"><span class="header">## 缓存的应用</span></span><br></pre></td></tr></table></figure>
-<pre><code>(局部缓存/全局缓存)
-jsp标签实现页面级的局部缓存 - OSCache
-局部缓存在开发中 不如 全局缓存用的多
-全局缓存<span class="comment">--过滤器filter</span>
-</code></pre><p>   ```</p>
+<h3 id="观察者模式">观察者模式</h3>  <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主题<span class="keyword">Subject </span>抽象/具体 (添加/删除/循环通知)</span><br><span class="line">观察者Observer update</span><br></pre></td></tr></table></figure>
+<p>  <strong>待完成题目</strong> <em>考试系统-学生/考试</em></p>
+<h2 id="缓存的应用">缓存的应用</h2>   <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(局部缓存/全局缓存)</span><br><span class="line">jsp标签实现页面级的局部缓存 - OSCache</span><br><span class="line">局部缓存在开发中 不如 全局缓存用的多</span><br><span class="line">全局缓存<span class="comment">--过滤器filter</span></span><br></pre></td></tr></table></figure>
 <h2 id="Java程序优化">Java程序优化</h2><ul>
 <li>集合类的相关[插入/删除]性能对比</li>
 <li>集合类的相关[查找]性能对比</li>
