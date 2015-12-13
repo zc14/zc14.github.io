@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-09T09:04:18.444Z</updated>
+  <updated>2015-12-13T12:36:44.107Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -13,6 +13,157 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[准备]]></title>
+    <link href="http://zc14.github.io/2015/12/13/%E5%87%86%E5%A4%87/"/>
+    <id>http://zc14.github.io/2015/12/13/准备/</id>
+    <published>2015-12-13T09:43:44.000Z</published>
+    <updated>2015-12-13T12:36:44.107Z</updated>
+    <content type="html"><![CDATA[<ol>
+<li>没有什么比<strong>为兴趣而工作</strong>更能打动招聘人员的了。</li>
+<li>公司最青睐的人才必须具备两个特性：一是天资聪颖，二是扎实的编程功底。</li>
+<li>还要提前规划好职业发展路径。</li>
+<li>建立好的人际网络。好的人际网络不仅意味着你广交朋友(广度),还要与他们保持紧密的联系(深度).尽量与朋友保持<strong>真诚</strong>与<strong>深厚</strong>的关系。</li>
+<li>要学会主动跟人打招呼。</li>
+<li>最重要的是乐于助人。</li>
+</ol>
+<h2 id="简历的书写">简历的书写</h2><ul>
+<li>简历尽量短<br>[demo]:使用Y实现了X，从而达到了Z效果。<em>通过实施分布式缓存功能减少了75%的对象渲染时间，从而使得用户登录速度加快了10%。</em> <strong>原则：描述做过的事情，怎么做的，以及结果如何。理想的做法是尽可能地量化结果。</strong></li>
+<li>编程语言：Java(非常熟练)，C++(熟练)，JavaScript(有过使用经验)。</li>
+<li>你有哪些缺点 <strong>应该提到真实，合乎情理的缺点，然后话锋一转，强调自己如何克服这些缺点。</strong> <em>1.有时候，我可能对细节不够重视。好的一面是我反应迅速，执行力强，但不免会粗心大意而犯错。有鉴于此，我总是会找其他同事帮忙检查自己的工作，确保不出问题。</em> <em>2.通过记录笔记/blog的形式，深化记忆</em></li>
+<li>项目中最难处理的问题是什么。  离职人员没有交接，造成问题定位困难（手机客户端，umapp端）。修改日志。</li>
+<li>你应该问面试官哪些问题 1）真实的问题 <em>你每天有多少时间花在写代码上？</em> <em>你一周要开几次会？</em> 2）有见地的问题 <em>我注意到你们使用了X技术，请问你们是如何处理Y问题的？</em> 3）富有激情的问题 <em>我对可扩展性很感兴趣。请问你从事过分布式系统的工作吗？有哪些机会可以学习这方面的知识？</em> <em>我对X技术不是太熟悉，不过听上去是个不错的解决方案。你能给我多讲讲它的工作原理吗？</em></li>
+<li><strong>VS</strong> <em>我几乎包揽了团队中所有的累活和难活。[骄傲自大，面试大忌]</em> <em>我实施了文件系统，因为XXXX原因，这是整个项目中最难的一部分。</em></li>
+</ul>
+<h2 id="行为面试题">行为面试题</h2><table>
+<thead>
+<tr>
+<th style="text-align:right">常见问题</th>
+<th style="text-align:right">项目1</th>
+<th style="text-align:right">项目</th>
+<th style="text-align:right">项目3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">最难的部分</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">有什么收获</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">最有意思的部分</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">最难解决的bug</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">最享受的过程</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:right">与团队成员的冲突</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>编写小故事，填写表格。面试前复习。最好小故事浓缩成几个字，便于记忆</strong></p>
+<h2 id="基本知识点">基本知识点</h2><table>
+<thead>
+<tr>
+<th style="text-align:right">数据结构</th>
+<th style="text-align:right">算法</th>
+<th style="text-align:right">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">链表</td>
+<td style="text-align:right">广度优先遍历</td>
+<td style="text-align:right">位操作</td>
+</tr>
+<tr>
+<td style="text-align:right">二叉树</td>
+<td style="text-align:right">深度优先遍历</td>
+<td style="text-align:right">单例设计模式</td>
+</tr>
+<tr>
+<td style="text-align:right">单词查找树(trie)</td>
+<td style="text-align:right">二分查找法</td>
+<td style="text-align:right">工厂设计模式</td>
+</tr>
+<tr>
+<td style="text-align:right">栈</td>
+<td style="text-align:right">归并排序</td>
+<td style="text-align:right">内存(栈和堆)</td>
+</tr>
+<tr>
+<td style="text-align:right">队列</td>
+<td style="text-align:right">快速排序</td>
+<td style="text-align:right">递归</td>
+</tr>
+<tr>
+<td style="text-align:right">向量/数组列表</td>
+<td style="text-align:right">树的插入</td>
+<td style="text-align:right">大O时间</td>
+</tr>
+<tr>
+<td style="text-align:right">散列表</td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="算法题的五种解法">算法题的五种解法</h2><ol>
+<li><p>举例法<br><em>给定一个具体时间，计算时针与分针之间的角度。</em><br>[解]：下面以3：27为例。确定3点的时针位置和27分的分针位置，我们可以画出一个时钟。<br>在一下的解法中，h表示小时，m表示分钟。同时，我们假定h的范围[0-23].<br>从这些例子我们可以得出以下规则：</p>
+<ul>
+<li>分针的角度（从12点整开始算起）：360 x m/60;                              162</li>
+<li>时针的角度（从12点整开始算起）：360 x (h%12)/12 + 360 x (m/60) x (1/12)   90 +13.5</li>
+<li>时针和分针之间的角度： （30h-5.5m）%360. 148.5    14.58</li>
+</ul>
+</li>
+<li><p>模式匹配法<br><em>一个有序数组的元素经过循环移动，元素的顺序可能是“3 4 5 6 7 1 2”。怎么才能找出数组中最小的那个元素？假设数组中的元素各不相同。</em><br>二分查找，部分有序。找出拐点即可。</p>
+</li>
+<li><p>简化推广法<br><em>从一本杂志里剪下一些单词可以拼凑成一封勒索信。怎样才能断定勒索信(以字符串表示)是否由某本杂志(即另一个字符串)里的单词组成。</em><br>可以先简化问题：暂时不考虑单词，只当它是字符。<br>推广这个算法，创建一个散列表，将单词映射到其词频上。</p>
+</li>
+<li><p>简单构造法–最后往往演变成递归法。（数学中的数学归纳法）<br><em>设计一种算法，打印某个字符串所有可能的排列组合。为简单起见，假设字符串中没有重复字符。</em><br>以字符串”abcdefg”为例：<br>只有”a”的情况，结果为：{“a”}<br>然后是”ab”，结果为：{“ab”,”ba”}<br>再然后是”abc”，结果会是什么呢？<br>此时，问题开始变得有点意思了。得到P(ab)的答案，怎么才能生成P(abc)呢？很简单，新字符是c。我们只需要在前一种情况的答案也即字符组合的任意位置加一个c就可以了。也就是：<br>P(abc) = 将”c”字符插入 P(ab)得到的所有字符串的任意位置。<br>亦即：P(abc) = 将”c”字符插入{“ab”,”ba”}这两个字符串中的任意位置。<br>也就是：P(abc) = merge({“cab”,”acb”,”abc”},{“cba”,”bca”,”bac”})<br>最后得出的结果：P(abc) = {“cab”,”acb”,”abc”,”cba”,”bca”,”bac”}.</p>
+</li>
+<li><p>数据结构头脑风暴<br><em>随机生成一些数字，并保存到一个(可扩展的)数组中。如何跟踪数组的中位数？</em><br>链表？<br>数组？<br>二叉树？<br>堆？</p>
+</li>
+</ol>
+<h2 id="许多公司都想找到能写出“优美，整洁”代码的人才。">许多公司都想找到能写出“优美，整洁”代码的人才。</h2><ol>
+<li>正确</li>
+<li>高效</li>
+<li>简洁</li>
+<li>易读</li>
+<li>可维护性</li>
+</ol>
+<p><em>编写一个函数检查某个二进制数(以字符串形式传入)是否等于以字符串表示的十六进制数。</em></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<ol>
+<li>没有什么比<strong>为兴趣而工作</strong>更能打动招聘人员的了。</li>
+<li>公司最青睐的人才必须具备两个特性：一是天资聪颖，二是扎实的编程功底。</li>
+<li>还要提前规划好职业发展路径。</li>
+<li>建立好的人际网络。好的人际网]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[算法学习]]></title>
