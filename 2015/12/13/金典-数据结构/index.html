@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>金典-数据结构 | zc14-紫竹林</title>
+  <meta name="author" content="周聪">
+  
+  <meta name="description" content="加班...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="金典-数据结构"/>
+  <meta property="og:site_name" content="zc14-紫竹林"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="zc14-紫竹林" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="zc14-紫竹林" title="zc14-紫竹林"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">zc14-紫竹林</h1>
+				<h2 class="blog-motto">叽里呱啦</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	金典-数据结构
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://zc14.github.io" title="周聪">周聪</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-13T13:02:04.000Z" itemprop="datePublished">2015-12-13</time>
+    更新日期:<time datetime="2015-12-15T05:07:44.004Z" itemprop="dateModified">2015-12-15</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h1 id="数据结构">数据结构</h1><h2 id="数组与字符串">数组与字符串</h2><ol>
+<li><p>散列表<br>散列表是一种将键(key)映射为值(value)从而实现快速查找的数据结构。<br><strong>核心：底层数组和散列函数(hash function)</strong>.问题：数组过小，碰撞冲突。<br>除了创建按索引hash(key)%array_length的数组元素指向的链表中。要通过某个键来查找对象，就必须根据散列值找到对应的链表，然后在链表中查找对应的键。<br>另外，我们还可以采用<strong>二叉查找树</strong>来实现散列表。只要我们让这棵树保持平衡，就能保证数据能查找用时为O(log n).原因很简单，我们不必一开始就分配一个大数组。</p>
+</li>
+<li><p>ArrayList(动态数组)</p>
+</li>
+<li><p>StringBuffer</p>
+</li>
+</ol>
+<h2 id="链表">链表</h2><ol>
+<li>创建链表<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class <span class="keyword">Node</span><span class="identifier"></span><span class="title">&#123;</span><br><span class="line">  Node</span> next = null;</span><br><span class="line">  int data;</span><br><span class="line">  </span><br><span class="line">  public <span class="keyword">Node</span><span class="identifier"></span><span class="title">(int</span> d)&#123;</span><br><span class="line">    data = d;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  void appendToTail(int d)&#123;</span><br><span class="line">    <span class="keyword">Node</span><span class="identifier"> </span><span class="title">end</span> = new <span class="keyword">Node</span><span class="identifier"></span><span class="title">(d</span>);</span><br><span class="line">    <span class="keyword">Node</span><span class="identifier"> </span><span class="title">n</span> = this;</span><br><span class="line">    while(n.next != null)&#123;</span><br><span class="line">      n = n.next;</span><br><span class="line">    &#125;</span><br><span class="line">    n.next = end;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>删除单向链表中的节点<br>给定一个节点n，我们先找到它的前驱结点prev,并将prev.next设置为n.next.<br>如果是双向链表，我们还要更新n.next.将n.next.prev置为n.prev.当然，我们必须注意：</p>
+<ul>
+<li>检查空指针。</li>
+<li>必要时更新表头head和表尾tail指针。<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Node deleteNode(Node head,int <span class="keyword">d</span>)&#123;</span><br><span class="line">  Node <span class="keyword">n</span> = head;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">n</span>.data == <span class="keyword">d</span>)&#123;</span><br><span class="line">     <span class="keyword">return</span> head.next; <span class="comment">/*表头指向下一结点*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">n</span>.next != null) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">n</span>.next.data == <span class="keyword">d</span>)&#123;</span><br><span class="line">      <span class="keyword">n</span>.next  = <span class="keyword">n</span>.next.next;</span><br><span class="line">      <span class="keyword">return</span> head; <span class="comment">/*表头不变*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">n</span> = <span class="keyword">n</span>.next;</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>快行指针技巧<br>快行指针值得是同时用两个指针来迭代访问链表，只不过其中一个比另一个超前一些。”快”指针往往先行几步，或与”慢”指针相差固定的步数。<br><em>举个例子，假定有一个链表a1-&gt;a2-&gt;…..-&gt;an-&gt;b1-&gt;b2……-&gt;bn,你想将其重新排列成a1-&gt;b1-&gt;a2-&gt;b2-&gt;…..an-&gt;bn.另外，你不知道该链表的长度(但确定它有偶数个元素)。</em><br>你可以用两个指针，其中p1（快指针）每次都向前移动两步，而同时p2只移动一步。当p1到达链表末尾时，p2刚好位于链表中间位置。然后，再让p1与p2一步步从尾向头反向移动，并将p2指向的结点插入到p1所指结点后面。</p>
+</li>
+<li><p>递归问题<br>解决链表问题碰壁时，不妨试试递归法能否奏效。</p>
+</li>
+</ol>
+<h2 id="栈与队列">栈与队列</h2><ol>
+<li><p>实现一个栈<br>栈(LIFO)</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span></span>&#123;</span><br><span class="line">  Node top;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">Object</span> pop()&#123;</span><br><span class="line">    <span class="keyword">if</span>(top != <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="built_in">Object</span> item = top.data;</span><br><span class="line">      top = top.next;</span><br><span class="line">      <span class="keyword">return</span> item;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">void</span> push(<span class="built_in">Object</span> item)&#123;</span><br><span class="line">    Node t = <span class="keyword">new</span> Mode(item);</span><br><span class="line">    t.next = top;</span><br><span class="line">    top = t;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">Object</span> peek()&#123;</span><br><span class="line">    <span class="keyword">return</span> top.data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现一个队列<br>队列采用先进先出(FIFO)顺序。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">class</span> Queue&#123;</span><br><span class="line">  Node <span class="keyword">first</span> ,<span class="keyword">last</span>;</span><br><span class="line">  </span><br><span class="line">  void enqueue(Object <span class="property">item</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">first</span> == null) &#123;</span><br><span class="line">      <span class="keyword">last</span> = new Node(<span class="property">item</span>);</span><br><span class="line">      <span class="keyword">first</span> = <span class="keyword">last</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="keyword">last</span>.next = new Node(<span class="property">item</span>);</span><br><span class="line">     <span class="keyword">last</span> = <span class="keyword">last</span>.next;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> Object dequeue()&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="keyword">first</span> != null)&#123;</span><br><span class="line">     Object <span class="property">item</span> = <span class="keyword">first</span>.data;</span><br><span class="line">     <span class="keyword">first</span> = <span class="keyword">first</span>.next;</span><br><span class="line"><span class="command">     return</span> <span class="property">item</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="command">   return</span> null;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="树与图">树与图</h2><ol>
+<li><p>需要注意的潜在问题</p>
+<ul>
+<li>二叉树与二叉查找树<br>二叉查找树的附加条件：对于任意结点，左子结点&lt;=当前结点，后者 由&lt;=所有右子结点</li>
+<li>平衡与不平衡<br>如果树是不平衡的，你应当从平均情况和最坏情况所需时间来描述自己的算法。注意，树的平衡有多种方法，平衡一棵树只意味着子树的深度差不会超过一定值，并不表示左子树和右子树的深度完全相同。</li>
+<li>完满和完整<br>一棵树必须正好有2n次方-1个结点才能满足这个条件</li>
+</ul>
+</li>
+<li><p>二叉树遍历 尤其是中序遍历考察的比较多</p>
+</li>
+<li><p>树的平衡：红黑树 和平衡二叉树。面试问的比较少</p>
+</li>
+<li><p>单词查找树(trie)<br>tire树是n层树的一种变体，其中每个节点存储有字符。整棵树的每条路径自上而下表示一个单词。</p>
+</li>
+<li><p>图的遍历<br>广度优先搜索(BFS)和深度优先搜索(DFS)</p>
+</li>
+</ol>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/金典/">金典</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/12/15/金典-概念与算法/" class="alignleft prev" title="金典-概念与算法">金典-概念与算法</a>
+    
+    
+    <a href="/2015/12/13/准备/" class="alignright next" title="准备">准备</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/12/13/金典-数据结构/" data-title="金典-数据结构" data-url="http://zc14.github.io/2015/12/13/金典-数据结构/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"http://zc14.github.io/"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" id="zc14-search-input" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zc14.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hello/">hello</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/金典/" style="font-size: 20px;">金典</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <!--
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2015 
+		
+		<a href="http://zc14.github.io/about" target="_blank" title="周聪">周聪</a>
+		
+		</p>
+</div>
+</footer>
+  -->
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+	  _st('install','ZsQjP1Wjp4ayEpx825-R','2.0.0');
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

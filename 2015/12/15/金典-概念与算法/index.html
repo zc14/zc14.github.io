@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>金典-概念与算法 | zc14-紫竹林</title>
+  <meta name="author" content="周聪">
+  
+  <meta name="description" content="加班...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="金典-概念与算法"/>
+  <meta property="og:site_name" content="zc14-紫竹林"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="zc14-紫竹林" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="zc14-紫竹林" title="zc14-紫竹林"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">zc14-紫竹林</h1>
+				<h2 class="blog-motto">叽里呱啦</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	金典-概念与算法
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://zc14.github.io" title="周聪">周聪</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-15T05:09:03.000Z" itemprop="datePublished">2015-12-15</time>
+    更新日期:<time datetime="2015-12-16T07:53:00.211Z" itemprop="dateModified">2015-12-16</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h1 id="概念与算法">概念与算法</h1><h2 id="位操作">位操作</h2><ol>
+<li>手工位运算<br>1000 - 0110  （0010）<br>1011 &amp; (~0 &lt;&lt; 2) （1000）</li>
+<li><p>位操作原理与技巧<br>|”^”操作|”&amp;”操作|<br>|:—-:|:—-:|<br>|x^0 = x|x&amp;0 = 0|<br>|x^1 = ~x|x&amp;1 = x|<br>|x^x = 0|x&amp;x = x|</p>
+</li>
+<li><p>常见位操作：获取，设置，清除及更新位数据</p>
+<ul>
+<li><p>获取</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">getBit</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> ((num &amp; (<span class="number">1</span> &lt;&lt; i)) !=<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <em>该方法将1左移i位，得到形如00010000的值。接着，对这个值与num执行“位与”操作，从而将i位之外的所有位清零。<br>最后，检查该结果是否为零。不为零说明i位为1，否则，i位为0.</em></p>
+</li>
+<li><p>置位</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setBit</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> num | (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>该方法先将1左移i位，得到形如00010000的值。接着，对这个值和num执行“位或”操作，这样只会改变i位的数据。<br>改掩码i位除外的位均为零，故而不会影响num的其余位。</em></p>
+</li>
+<li><p>清零</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">clearBit</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> mask = ~(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">  <span class="keyword">return</span> num &amp; mask;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将num最高位至i位(含)清零的做法如下：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">clearBitsMSBthroughtI</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> mask = (<span class="number">1</span> &lt;&lt; i) -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> num &amp; mask;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将i位至0位(含)清零的做法如下：</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">clearBitsIthrought0</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> mask = ~((<span class="number">1</span> &lt;&lt; (i+<span class="number">1</span>)) -<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> num &amp; mask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>该方法与setBit刚好相反。首先，将1左移i位得到形如00010000的值，对这个值取反进而得到类似11101111的掩码。<br>接着，对该掩码和num执行“位与”操作。这样只会清零num的i位，其余位保持不变。</em></p>
+</li>
+<li>更新<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">updateBit</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> i,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> mask = ~(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">  <span class="keyword">return</span> ( num &amp; mask) | (v &lt;&lt; i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>此方法将setBit与clearBit合二为一。首先，用诸如11101111的掩码将num的第i位清零。<br>接着，将待写入值v左移i位，得到一个i位为v但其余位都为0的数。最后，对之前得到的两个结果执行“位或”操作，<br>v为1则将num的i位更新为1，否则该位仍为0.
+</em></p>
+</li>
+</ol>
+<h2 id="智力题">智力题</h2><ol>
+<li>大声说出你的思路</li>
+<li><p>总结规律与模式<br><em>给定两条绳子，每条绳子燃烧殆尽正好要用1个小时。怎样用这两条绳子准确计量15分钟？</em></p>
+</li>
+<li><p>略作变通</p>
+</li>
+<li>触类旁通</li>
+</ol>
+<h2 id="数学与概率">数学与概率</h2><ol>
+<li><p>素数<br>每一个数都可以分解成素数乘积。<br><em>84 = 2的2次方 x 3的1次方 x 5的0次方 x 7的1次方 x 11的0次方 x 13的0次方 x 17的0次方…..</em></p>
+<ul>
+<li><p>素数检查</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">primeSlighrlyBetter</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(n &lt; <span class="number">2</span>)&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> <span class="built_in">sqrt</span> = (<span class="keyword">int</span>) Math.<span class="built_in">sqrt</span>(n);</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;=<span class="built_in">sqrt</span>;i++)&#123;</span><br><span class="line">   <span class="keyword">if</span>( n %i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成素数序列：埃拉托斯特腻筛法<br>能非常高效地生成素数序列，原理是剔除所有可被素数整除的非素数。<br>原理：一开始列出到max为止的所有数字。首先，划掉所有可被2整除的数(2保留)。<br>然后，找到下一个素数(也即下一个不会被划掉的数)，并划掉所有可被它整除的数。划掉所有可被2，3，5，7，11等素数整除的数，最终课得到2到max之间的素数序列。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span>[] sieveOfEratosthenes(<span class="keyword">int</span> max)&#123;</span><br><span class="line">  <span class="keyword">boolean</span>[] flags = <span class="keyword">new</span> <span class="keyword">boolean</span>[max +<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  init(flags);<span class="comment">//将flags中0，1元素除外的所有元素设为true</span></span><br><span class="line">  <span class="keyword">int</span> prime = <span class="number">2</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(prime &lt;= max)&#123;</span><br><span class="line">   <span class="comment">/*划掉余下为prime倍数的数字*/</span></span><br><span class="line">   crossOff(flags,prime);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*找出下一个为true的值*/</span></span><br><span class="line">   prime = getNextPrime(flags,prime);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span>(prime &gt;= flags.length)&#123;</span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flags;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> crossOff(<span class="keyword">boolean</span>[] flags,<span class="keyword">int</span> prime)&#123;</span><br><span class="line"> <span class="comment">/*划掉余下为prime倍数的数字，我们可以从(prime*prime)开始，因为如果k*prime且k &lt; prime,这个值早就在之前的迭代里被划掉了。*/</span></span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i = prime * prime;i &lt; flags.length;i +=prime)&#123;</span><br><span class="line">   flags[i] = <span class="keyword">false</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> getNextPrime(<span class="keyword">boolean</span>[] flags,<span class="keyword">int</span> prime)&#123;</span><br><span class="line"> <span class="keyword">int</span> <span class="keyword">next</span> = prime +<span class="number">1</span>;</span><br><span class="line"> <span class="keyword">while</span>(<span class="keyword">next</span> &lt; flags.length &amp;&amp; !flags[<span class="keyword">next</span>])&#123;</span><br><span class="line">   <span class="keyword">next</span>++;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">next</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>概率</p>
+<ul>
+<li>A与B都发生的概率<br>P(A与B都发生) = P(B发生，在A发生的情况下) <em> P(A发生)
+</em>假设要在1到10之间挑选一个数。挑中一个偶数且这个数载1到5之间的概率有多大？*1/5</li>
+<li>A或B发生的概率<br>P(A或B发生) = P(A发生) + P(B发生) - P(A与B都发生)<br><em>假设我们要在1到10之间挑选一个数。挑中的数为偶数或这个数1到5之间的概率有多大？</em>4/5</li>
+<li><p>独立<br>若A与B相互独立(也即，一个事件的发生，推不出另一个事件的发生)。那么P(A与B都发生) = P(A)P(B)。这条规则直接推倒自P(A与B都发生) = P(A)P(B).</p>
+</li>
+<li><p>互斥<br>若A与B互斥(也即，若一个事件发生，则另一个事件就不可能发生)，则P(A或B发生) = P(A) + P(B)。这是因为P(A与B都发生) = 0，所以，删除了之前P(A或B发生)算式中的P(A与B都发生)一项。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="面向对象设计">面向对象设计</h2><ol>
+<li>如何解答面向对象设计问题<ul>
+<li>处理不明确的地方</li>
+<li>定义核心对象</li>
+<li>分析对象关系</li>
+<li>研究对象的动作</li>
+</ul>
+</li>
+<li>设计模式<ul>
+<li>单例设计模式<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Restaurant</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Restaurant _instance = <span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="title">Resuaurant</span>(<span class="params"></span>)</span>&#123; ... &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Restaurant <span class="title">getInstance</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(_instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">      _instance = <span class="keyword">new</span> Restaurant();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>工厂方法设计模式<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">class</span> CardGame&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> CardGame createCardGame(GameType <span class="class"><span class="keyword">type</span>)&#123;</span></span><br><span class="line">     <span class="keyword">if</span>(<span class="class"><span class="keyword">type</span> </span>== GameType.Poker)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> PokerGame();</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="class"><span class="keyword">type</span> </span>== GameType.BlackJack)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BlackJackGame();</span><br><span class="line">&#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="递归和动态规划">递归和动态规划</h2><p>   当你听到问题是这么开头的：”设计一个算法，计算第n个……”,”编写代码列出前n个…….”,”实现一个方法，计算所有…..”等等，那么，这基本上就是一个递归问题。</p>
+<ol>
+<li>解决之道<br>从较小的子问题逐渐逼近原始问题。很多时候，只要在f(n-1)的解法中加入，移除某系东西或者稍作修改就能算出f(n).</li>
+<li><p>动态规划<br>区别于递归，动态规划要对中间结果执行“缓存”操作，以备后续使用。<br><em>动态规划法简单实例：斐波那契数列</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改之前------------------------------</span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(i == <span class="number">0</span> ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">if</span>(i == <span class="number">1</span> ) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">return</span> fibonacci(i-<span class="number">1</span>) + fibonacci(i-<span class="number">2</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//修改之后------------------------------</span></span><br><span class="line"> <span class="keyword">int</span>[] fib = <span class="keyword">new</span> <span class="keyword">int</span>[max];</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(i == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(i == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(fib[i] != <span class="number">0</span>) <span class="keyword">return</span> fib[i];<span class="comment">//返回先前缓存的结果</span></span><br><span class="line">  fib[i] = fibonacci(i-<span class="number">1</span>) + fibonacci(i-<span class="number">2</span>);<span class="comment">//缓存结果</span></span><br><span class="line">  <span class="keyword">return</span> fib[i];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>递归和迭代解法<br>递归算法的空间效率很低。每次递归调用都会在栈上增加一层，也就是说，若算法包含O(n)次递归调用，就要使用O(n)内存。不得了！</li>
+</ol>
+</li>
+</ol>
+<h2 id="扩展性与存储限制">扩展性与存储限制</h2><ol>
+<li>循序渐进法<ul>
+<li>大胆假设</li>
+<li>切合实际</li>
+<li>解决问题</li>
+</ul>
+</li>
+<li>你需要知道的：信息，策略与问题</li>
+<li>示例：查找所有包含某一组词的文件<br><em>给定数百万份文件，如何找出所有包含某一组词的文件？我们不关心这些词出现的顺序，但它们必须是完整的单词。也就是说，“book”与“bookkeeper”不是一回事。</em><br><strong>在着手解决问题之前，我们需要考虑findWords程序只用一次，还是要反复调用。假设需要多次调用findWords程序来扫描这些文件，那么，我们可以接受预处理的开销。</strong><ul>
+<li>步骤1<br>先忘记我们有数以百万计的文件，假装只有几十个文件。在这种情况下，如何实现findWords呢？<br>一种方法是预处理每个文件，并创建一个散列表的索引。这个散列表会将词映射到含有这个词的一组文件。<br>“books” -&gt;{doc2,doc3,doc6,doc8}<br>“many” -&gt;{doc1,doc3,doc7,doc8,doc9}<br>若要查找 “many books”,只需要对”books”和”many”的值进行交集运算，于是得到结果{doc3,doc8}</li>
+<li>步骤2<br>现在，回到最初的问题。若有数百万份文件，会有什么问题？首先，我们可能需要将文件分散到多台机器上。<br>文件分散到多台机器上会引出以下几个很关键的关注点。<br>  1）如何划分改散列表。（按关键字划分）某台机器上存放油包含某个单词的全部文件。<br>  2）划分数据完成，我们可能需要在一台机器上对文件进行处理，并将结果推送他其他机器上。<br>  3）我们需要找到一种方法获知哪台机器拥有哪些数据。</li>
+<li>步骤3<br>为了找到匹配某一组字符串的所有文件，我们会先对这一组字符串进行排序，然后给每一台机器发送与字符对应的查找请求。例如，若带查找字符串为“after builds boat amaze banana”，一号机器开始查找包含“after” 与 “amaze” 的文件，并对这些文件执行交集运算。三号机器则处理{“banana”，“boat”，“builds”}这几个关键字，同样也会对文件进行交集运算。<br>最后，发送请求的机器在对一号机器及三号机器返回的结果作交集运算。<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">            “after builds boat amaze banana”</span><br><span class="line"> </span><br><span class="line"> Machine <span class="number">1</span>：“after amaze”       Machine <span class="number">3</span>：“builds boat banana”</span><br><span class="line"> </span><br><span class="line">“after” -&gt;<span class="annotation">doc</span><span class="number">1</span>,<span class="annotation">doc</span><span class="number">5</span>,<span class="annotation">doc</span><span class="number">7</span>       “builds” -&gt;<span class="annotation">doc</span><span class="number">3</span>,<span class="annotation">doc</span><span class="number">4</span>,<span class="annotation">doc</span><span class="number">5</span></span><br><span class="line">“amaze” -&gt;<span class="annotation">doc</span><span class="number">2</span>,<span class="annotation">doc</span><span class="number">5</span>,<span class="annotation">doc</span><span class="number">7</span>       “boat”   -&gt;<span class="annotation">doc</span><span class="number">2</span>,<span class="annotation">doc</span><span class="number">3</span>,<span class="annotation">doc</span><span class="number">5</span></span><br><span class="line">                               “banana” -&gt;<span class="annotation">doc</span><span class="number">3</span>,<span class="annotation">doc</span><span class="number">3</span>,<span class="annotation">doc</span><span class="number">5</span></span><br><span class="line">      </span><br><span class="line">      &#123;<span class="annotation">doc</span><span class="number">5</span>,<span class="annotation">doc</span><span class="number">7</span>&#125;               &#123;<span class="annotation">doc</span><span class="number">3</span>,<span class="annotation">doc</span><span class="number">5</span>&#125;</span><br><span class="line">      </span><br><span class="line">                  solution = <span class="annotation">doc</span><span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="排序与查找">排序与查找</h2><ol>
+<li><p>排序算法<br>面试中常见的排序算法三种算法：归并排序(Merge Sort) 快速排序(Quick Sort) 基数排序(Radix Sort,桶排序)</p>
+<ul>
+<li>冒泡排序|执行时间： 平均情况与最差情况为O(n²)，存储空间：O(1).<br>冒泡排序（Bubble Sort）是先从数组第一个元素开始，依次比较相邻两个数，若前者比后者大，就将两者交换位置，然后处理下一对，依此类推，不断扫描数组，直到完成排序。</li>
+<li>选择排序|执行时间：平均情况与最差情况为O(n²)，存储空间：O(1).<br>选择排序(Selecction Sort)有点小儿科：简单而低效。我们会线性逐一扫描数组元素，从中挑出最小的元素，将它移到最前面(也就是与最前面的元素交换)。然后，再次线性扫描数组，找到第二小的元素，并移到前面。如此反复，直到全部元素各归其位。</li>
+<li><p>归并排序|执行时间：平均情况与最差情况为O(nlog(n))，存储空间：看情况。☆☆☆☆☆<br>归并排序是将数组分成两半，这两半分别排序后，再归并在一起。排序某一半时，继续沿用同样的排序算法，最终，你将归并两个只含有一个元素的数组。这个算法的重担都落在“归并”的部分上。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergesort</span><span class="params">(<span class="keyword">int</span>[] <span class="built_in">array</span>,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(low &lt; high)&#123;</span><br><span class="line">  	<span class="keyword">int</span> middle = (low + high) /<span class="number">2</span>;</span><br><span class="line">      mergesort(<span class="built_in">array</span>,low,middle);<span class="comment">//排序左半部分</span></span><br><span class="line">      mergesort(<span class="built_in">array</span>,middle+<span class="number">1</span>,high);<span class="comment">//排序右半部分</span></span><br><span class="line">      merge(<span class="built_in">array</span>,low,middle,high);<span class="comment">//归并</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] <span class="built_in">array</span>,<span class="keyword">int</span> low,<span class="keyword">int</span> middle,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] helper = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="built_in">array</span>.length];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*将数组左右两半拷贝到helper数组中*/</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = low;i &lt;=high;i++)&#123;</span><br><span class="line">  helper[i] = <span class="built_in">array</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">int</span> helperLeft = low;</span><br><span class="line">  <span class="keyword">int</span> helperRight = middle + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> current = low;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*</span><br><span class="line">   *迭代访问helper数组。比较左，右两半的元素，并将较小的元素复制到原先的数组中。</span><br><span class="line">   */</span></span><br><span class="line">   <span class="keyword">while</span>(helperLeft &lt;= middle &amp;&amp; helperRight &lt;=high)&#123;</span><br><span class="line">     <span class="keyword">if</span>(helper[helperLeft] &lt;= helper[helperRight])&#123;</span><br><span class="line">       <span class="built_in">array</span>[current] = helper[helperLeft];</span><br><span class="line">       helperLeft++;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;<span class="comment">//如果右边的元素小于左边的元素</span></span><br><span class="line">       <span class="built_in">array</span>[current] = helper[helperRight];</span><br><span class="line">       helperRight++;</span><br><span class="line">     &#125;</span><br><span class="line">     count++;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*</span><br><span class="line">    *将数组左半部分剩余元素复制到目标数组中</span><br><span class="line">    */</span></span><br><span class="line">    <span class="keyword">int</span> remaining = middle -- helperLeft;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=remaining;i++)&#123;</span><br><span class="line">      <span class="built_in">array</span>[current + i] = helper[helperLeft + i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergesort</span><span class="params">(<span class="keyword">int</span>[] <span class="built_in">array</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] helper = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="built_in">array</span>.length];</span><br><span class="line">  mergesort(<span class="built_in">array</span>,helper,<span class="number">0</span>,<span class="built_in">array</span>.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>merge方法会将目标数组的所有元素拷贝到临时数组helper中，并记下数组左,右两半的其实位置(helperLefth和helperRight)。然后，迭代访问helper数组，将左右两半中较小的元素，复制到目标数组中。最后，再将余下所有元素复制回目标数数组。</p>
+</li>
+<li><p>快速排序|执行时间：平均情况为O(nlog(n))，最差情况为O(n²)，存储空间：O(log(n)).☆☆☆☆☆<br>快速排序是随机挑选一个元素，对数组进行分割，以将所有比它小的元素排在前面，比它大的元素则排在后面。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void <span class="built_in">quickSort</span>(int arr[],int <span class="keyword">left</span>,int <span class="keyword">right</span>)&#123;</span><br><span class="line">  int index = <span class="built_in">partition</span>(arr,<span class="keyword">left</span>,<span class="keyword">right</span>);</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">left</span> &lt; index -<span class="number">1</span>)&#123; <span class="comment">//排序左半部分</span></span><br><span class="line">     <span class="built_in">quickSort</span>(arr,<span class="keyword">left</span>,index - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(index &lt; <span class="keyword">right</span>)&#123; <span class="comment">//排序右半部分</span></span><br><span class="line">    <span class="built_in">quickSort</span>(arr,index,<span class="keyword">right</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int <span class="built_in">partition</span>(int arr[],int <span class="keyword">left</span>,int <span class="keyword">right</span>)&#123;</span><br><span class="line">  int pivot = arr[(<span class="keyword">left</span> + <span class="keyword">right</span>)/<span class="number">2</span>];<span class="comment">//挑出一个基准点</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">left</span> &lt;= <span class="keyword">right</span>) &#123;</span><br><span class="line">    <span class="comment">//找出左边中应被放到右边的元素</span></span><br><span class="line">    <span class="keyword">while</span>(arr[<span class="keyword">left</span>] &lt; pivot) <span class="keyword">left</span>++;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//找出右边中应被放到左边的元素</span></span><br><span class="line">    <span class="keyword">while</span>(arr[<span class="keyword">right</span>] &gt; pivot) <span class="keyword">right</span>--;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//交换元素，同时调整左右索引值</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">left</span> &lt;= <span class="keyword">right</span>)&#123;</span><br><span class="line">      <span class="built_in">swap</span>(arr,<span class="keyword">left</span>,<span class="keyword">right</span>);<span class="comment">//交换元素</span></span><br><span class="line">      <span class="keyword">left</span>++;</span><br><span class="line">      <span class="keyword">right</span>--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">left</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基数排序|执行时间：O(kn) ☆☆☆☆☆<br>基数排序是个整数(或其他一些数据类型)排序算法，充分利用整数的位数有限这一事实。使用基数排序时，我们会迭代访问数字的每一位，按各个位对这些数字分组。<br>比如说，假设有一个整数数组，我们可以先按个位对这些数字进行分组，于是，个位为0的数字就会分在同一个组里。然后，再按十位进行分组，如此反复执行同样的过程，逐级按更高位进行排序，直到最后整个数组变为有序数组。</p>
+</li>
+</ul>
+</li>
+<li><p>查找算法<br>二分查找☆☆☆☆☆ <strong>需要有序</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> high = a.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> mid;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">    mid = (low + high) /<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(a[mid] &lt; x)&#123;</span><br><span class="line">      low = mid +<span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; x)&#123;</span><br><span class="line">    high = mid -<span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//错误</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearchRecursive</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> x,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(low &gt; high) <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//错误</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">int</span> mid = (low + high) /<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>(a[mid] &lt; x)&#123;</span><br><span class="line">    <span class="keyword">return</span> binarySearchRecursive(a,x,mid + <span class="number">1</span>,high);</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; x)&#123;</span><br><span class="line">   <span class="keyword">return</span> binarySearchRecursive(a,x,low,mid -<span class="number">1</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> mid;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/金典/">金典</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/12/22/回调函数/" class="alignleft prev" title="回调函数">回调函数</a>
+    
+    
+    <a href="/2015/12/13/金典-数据结构/" class="alignright next" title="金典-数据结构">金典-数据结构</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/12/15/金典-概念与算法/" data-title="金典-概念与算法" data-url="http://zc14.github.io/2015/12/15/金典-概念与算法/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"http://zc14.github.io/"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" id="zc14-search-input" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zc14.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hello/">hello</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/金典/" style="font-size: 20px;">金典</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <!--
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2015 
+		
+		<a href="http://zc14.github.io/about" target="_blank" title="周聪">周聪</a>
+		
+		</p>
+</div>
+</footer>
+  -->
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+	  _st('install','ZsQjP1Wjp4ayEpx825-R','2.0.0');
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
