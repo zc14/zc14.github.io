@@ -89,13 +89,14 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-13T13:02:04.000Z" itemprop="datePublished">2015-12-13</time>
-    更新日期:<time datetime="2015-12-15T05:07:44.004Z" itemprop="dateModified">2015-12-15</time>
+    更新日期:<time datetime="2015-12-27T07:32:53.270Z" itemprop="dateModified">2015-12-27</time>
     
   </p>
 </header>
     <div class="entry">
 		
-        <h1 id="数据结构">数据结构</h1><h2 id="数组与字符串">数组与字符串</h2><ol>
+        <p>一些面试常用的数据结构<br><a id="more"></a></p>
+<h1 id="数据结构">数据结构</h1><h2 id="数组与字符串">数组与字符串</h2><ol>
 <li><p>散列表<br>散列表是一种将键(key)映射为值(value)从而实现快速查找的数据结构。<br><strong>核心：底层数组和散列函数(hash function)</strong>.问题：数组过小，碰撞冲突。<br>除了创建按索引hash(key)%array_length的数组元素指向的链表中。要通过某个键来查找对象，就必须根据散列值找到对应的链表，然后在链表中查找对应的键。<br>另外，我们还可以采用<strong>二叉查找树</strong>来实现散列表。只要我们让这棵树保持平衡，就能保证数据能查找用时为O(log n).原因很简单，我们不必一开始就分配一个大数组。</p>
 </li>
 <li><p>ArrayList(动态数组)</p>
