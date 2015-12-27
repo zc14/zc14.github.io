@@ -103,8 +103,9 @@
     <link href="http://zc14.github.io/2015/12/20/Java%E8%A7%A3%E6%83%91/"/>
     <id>http://zc14.github.io/2015/12/20/Java解惑/</id>
     <published>2015-12-20T06:52:24.000Z</published>
-    <updated>2015-12-27T07:07:19.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="表达式之谜">表达式之谜</h1><h2 id="谜题1_奇偶性">谜题1 奇偶性</h2><pre><code>i%<span class="number">2</span> == <span class="number">0</span> 
+    <updated>2015-12-27T07:31:11.368Z</updated>
+    <content type="html"><![CDATA[<p>一些小小注意点<br><a id="more"></a></p>
+<h1 id="表达式之谜">表达式之谜</h1><h2 id="谜题1_奇偶性">谜题1 奇偶性</h2><pre><code>i%<span class="number">2</span> == <span class="number">0</span> 
 优化 (i &amp; <span class="number">1</span>) == <span class="number">0</span>
 </code></pre><h2 id="谜题2_找零时刻">谜题2 找零时刻</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">2.00</span> - <span class="number">1.10</span>);</span><br><span class="line"><span class="comment">//输出结果：0.8999999999999999</span></span><br></pre></td></tr></table></figure>
 <p>原因:<strong>并不是所有的小数都可以用二进制浮点数精确表示。在需要精确答案的地方，要避免使用float和double;对于货币计算，要使用int，long或BigDecimal。</strong><br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> System.out.<span class="built_in">println</span>(<span class="keyword">new</span> BigDecimal(<span class="number">.1</span>));</span><br><span class="line"> <span class="comment">//输出结果：0.1000000000000000055511151231257827021181583404541015625</span></span><br><span class="line"></span><br><span class="line"> 一定要用BigDecimal(<span class="keyword">String</span>)构造器，而千万不要用BigDecimal(<span class="keyword">double</span>)</span><br><span class="line"></span><br><span class="line"> System.out.<span class="built_in">println</span>(<span class="keyword">new</span> BigDecimal(<span class="string">"2.00"</span>).subtract(<span class="keyword">new</span> BigDecimal(<span class="string">"1.10"</span>)));</span><br><span class="line"><span class="comment">//输出结果：0.90</span></span><br></pre></td></tr></table></figure></p>
@@ -137,8 +138,8 @@
 <pre><code>
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="表达式之谜">表达式之谜</h1><h2 id="谜题1_奇偶性">谜题1 奇偶性</h2><pre><code>i%<span class="number">2</span> == <span class="number">0</span> 
-优化 (i &am]]>
+    <![CDATA[<p>一些小小注意点<br>]]>
+    
     </summary>
     
   </entry>
