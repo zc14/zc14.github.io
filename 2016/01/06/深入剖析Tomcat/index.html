@@ -15,7 +15,7 @@
 	})();
 	</script>
   
-  <title>算法学习 | zc14-紫竹林</title>
+  <title>深入剖析Tomcat | zc14-紫竹林</title>
   <meta name="author" content="周聪">
   
   <meta name="description" content="加班...">
@@ -23,7 +23,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="算法学习"/>
+  <meta property="og:title" content="深入剖析Tomcat"/>
   <meta property="og:site_name" content="zc14-紫竹林"/>
 
   
@@ -81,27 +81,44 @@
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	算法学习
+	深入剖析Tomcat
   </h1>
   <p class="article-author">By
     
       <a href="http://zc14.github.io" title="周聪">周聪</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-12-09T05:26:15.000Z" itemprop="datePublished">2015-12-09</time>
-    更新日期:<time datetime="2015-12-09T09:04:18.444Z" itemprop="dateModified">2015-12-09</time>
+    <time datetime="2016-01-06T01:20:00.000Z" itemprop="datePublished">2016-01-06</time>
+    更新日期:<time datetime="2016-01-06T07:52:39.741Z" itemprop="dateModified">2016-01-06</time>
     
   </p>
 </header>
     <div class="entry">
 		
-        <p>[TOC]</p>
-<h1 id="学习算法是非常有趣和令人激动的">学习算法是非常有趣和令人激动的</h1><h1 id="最大公约数-(欧几里得算法)">最大公约数-(欧几里得算法)</h1>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="link_reference">自然语言描述</span>]:<span class="link_url">计算两个非负整数p和q的最大公约数:若q是0，则最大公约数为p。否则，将p除以q得到余数r，p和q的最大公约数即为q和r的最大公约数。</span></span><br></pre></td></tr></table></figure>
-<h2 id="基础">基础</h2><h2 id="排序">排序</h2><h2 id="查找">查找</h2><h2 id="图">图</h2><h2 id="字符串">字符串</h2><h2 id="背景">背景</h2>
+        <a id="more"></a>
+<pre><code>Tomcat源码阅读文献
+</code></pre><h2 id="A-一个简单的Web服务器–构建Web服务">A.一个简单的Web服务器–构建Web服务</h2><h3 id="1-HTTP协议">1.HTTP协议</h3><ol>
+<li><p>请求<br><strong>请求方法  统一资源标识符URI  协议/版本</strong><br><strong>请求头</strong><br><strong>空行</strong><br><strong>实体</strong><br>[Demo]</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST <span class="regexp">/Platfform/</span>login.jsp HTTP/<span class="number">1.1</span></span><br><span class="line"><span class="string">Accept:</span> text<span class="regexp">/plain;text/</span>html</span><br><span class="line">Accept-<span class="string">Language:</span> en-gb</span><br><span class="line"><span class="string">Connection:</span> Keep-Alive</span><br><span class="line"><span class="string">Host:</span> localhost</span><br><span class="line">      </span><br><span class="line">username=jack&amp;password=<span class="number">1234</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相应<br><strong>协议/版本  状态码  描述</strong><br><strong>响应头</strong><br><strong>空行</strong><br><strong>响应实体段</strong><br>[Demo]</p>
+ <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Server: Microsoft-IIS/<span class="number">4.0</span></span><br><span class="line">Date:M<span class="keyword">on</span>,<span class="number">6</span> Jan <span class="number">2015</span></span><br><span class="line">Content-Type:text/html</span><br><span class="line">Content-Length:<span class="number">85</span></span><br><span class="line">       </span><br><span class="line"><span class="variable">&lt;html&gt;</span></span><br><span class="line">  <span class="variable">&lt;head&gt;</span></span><br><span class="line">     <span class="variable">&lt;title&gt;</span>hello world<span class="variable">&lt;/title&gt;</span></span><br><span class="line">  <span class="variable">&lt;/head&gt;</span></span><br><span class="line">  <span class="variable">&lt;body&gt;</span>Welcome <span class="keyword">to</span> Tomcat World<span class="variable">&lt;/body&gt;</span></span><br><span class="line"><span class="variable">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-Socket类_和_ServerSocket类">2.Socket类 和 ServerSocket类</h3><h3 id="3-构建应用程序">3.构建应用程序</h3><p>1.HttpServer接收请求(ServerSocket)<br>2.创建Socket对象(ServerSocket.accept())<br>3.创建输入输出流InputStream/OutputStream(socket.getInputStream()/socket.getOutputStream())<br>4.创建Request/Response对象<br>5.Request对象负责截取URI(自定义parse方法-用到indexOf()和substring)，传递给Response。<br>6.Response响应，构建HTTP相应格式信息，OutputStream给客户端。</p>
+</li>
+</ol>
+<h2 id="B-一个简单的servlet容器–用于解析servlet">B.一个简单的servlet容器–用于解析servlet</h2><h3 id="servet编程要使用javax-servlet和javax-servlet-http两个接口下的类">servet编程要使用javax.servlet和javax.servlet.http两个接口下的类</h3><p><strong>URLClassLoader是ClassLoader的子类，它用于从指向 JAR 文件和目录的 URL 的搜索路径加载类和资源。也就是说，通过URLClassLoader就可以加载指定jar中的class到内存中。</strong></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(jar文件全路径);</span><br><span class="line">URL url = <span class="keyword">file</span>.toURI().toURL();</span><br><span class="line">URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(<span class="keyword">new</span> URL[] &#123; url &#125;);</span><br><span class="line"><span class="keyword">Class</span> tidyClazz = loader.loadClass(所需<span class="keyword">class</span>的含包名的全名);</span><br></pre></td></tr></table></figure>
+<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   COnstants—常量类</p>
+
     </div>
     <footer>
         
         
+  
+  <div class="tags">
+    <a href="/tags/Tomcat/">Tomcat</a>
+  </div>
+
 		<div class="bdsharebuttonbox">
 	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
 	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -147,10 +164,10 @@ with(document)0[
 
  <nav id="pagination" >
     
-    <a href="/2015/12/13/准备/" class="alignleft prev" title="准备">准备</a>
+    <a href="/2016/01/13/Java-TCP-IP-Socket编程/" class="alignleft prev" title="Java TCP/IP Socket编程">Java TCP/IP Socket编程</a>
     
     
-    <a href="/2015/12/06/markdown/" class="alignright next" title="markdown快速入门">markdown快速入门</a>
+    <a href="/2015/12/27/Java并发编程的艺术/" class="alignright next" title="Java并发编程的艺术">Java并发编程的艺术</a>
     
     <div class="clearfix"></div>
 </nav>
@@ -160,7 +177,7 @@ with(document)0[
 	
 	<section id="comment">
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="2015/12/09/算法学习/" data-title="算法学习" data-url="http://zc14.github.io/2015/12/09/算法学习/"></div>
+		<div class="ds-thread" data-thread-key="2016/01/06/深入剖析Tomcat/" data-title="深入剖析Tomcat" data-url="http://zc14.github.io/2016/01/06/深入剖析Tomcat/"></div>
 		<!-- 多说评论框 end -->
 		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 		<script type="text/javascript">

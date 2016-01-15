@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2015-12-27T07:25:30.415Z</updated>
+  <updated>2016-01-15T06:06:35.184Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -13,6 +13,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Java TCP/IP Socket编程]]></title>
+    <link href="http://zc14.github.io/2016/01/13/Java-TCP-IP-Socket%E7%BC%96%E7%A8%8B/"/>
+    <id>http://zc14.github.io/2016/01/13/Java-TCP-IP-Socket编程/</id>
+    <published>2016-01-13T05:37:00.000Z</published>
+    <updated>2016-01-15T06:06:35.184Z</updated>
+    <content type="html"><![CDATA[<p>Java TCP/IP Socket编程 读书笔记，一本好书，值得多看几遍<br><a id="more"></a></p>
+<h2 id="1-网络构成">1.网络构成</h2><p> 主机+路由器+物理的网络线路（通信信道）</p>
+<h2 id="2-协议的定义">2.协议的定义</h2><p> 协议相当于相互通信的程序间达成的一种约定，它规定了分组报文的结构、交换方式、包含的意义以及怎样对报文所包含的信息进行解析。</p>
+<h2 id="3-TCP/IP网络">3.TCP/IP网络</h2><p> IP–IP地址<br> TCP/UDP–端口</p>
+<h2 id="4-信息处理流程">4.信息处理流程</h2><p> 应用程序-套接字-TCP/UDP-IP-通信信道- IP - 通信信道 -IP-TCP/UDP-套接字-应用程序<br> 主机                    -以太网等|路由器|        -主机           </p>
+<h2 id="5-IP网络层_TCP/UDP传输层">5.IP网络层 TCP/UDP传输层</h2><h2 id="6-TCP协议和UDP协议也成为端到端协议，因为它们将数据从一个应用程序传输到另一个应用程序，而IP协议只是将数据从一个主机传输到另一个主机。">6.TCP协议和UDP协议也成为端到端协议，因为它们将数据从一个应用程序传输到另一个应用程序，而IP协议只是将数据从一个主机传输到另一个主机。</h2><h2 id="7-TCP协议是一个面向连接的协议3次握手，保证数据传输的可信赖性。_UDP是一种尽力而为的数据报服务，报文丢失，顺序错乱等问题要面对。">7.TCP协议是一个面向连接的协议3次握手，保证数据传输的可信赖性。 UDP是一种尽力而为的数据报服务，报文丢失，顺序错乱等问题要面对。</h2><h2 id="8-内网地址_10-/_192-168-/172-（16-31）-–&gt;NAT(网络地址转换)–&gt;连接到外网。多播地址224-239">8.内网地址 10./ 192.168./172.（16-31）.–&gt;NAT(网络地址转换)–&gt;连接到外网。多播地址224-239</h2><h2 id="9-Socket套接字是一种抽象层，应用程序通过它来发送和接收数据。主要的Socket类型为流套接字(Stream_socket)和数据报套接字(datagram_socket)-">9.Socket套接字是一种抽象层，应用程序通过它来发送和接收数据。主要的Socket类型为流套接字(Stream socket)和数据报套接字(datagram socket).</h2><h2 id="10-TCP协议下Client_-_Socket-InputStream/OutputStream_byte[]_;_Server_-_ServerSocket_-_socket">10.TCP协议下Client - Socket-InputStream/OutputStream byte[] ; Server - ServerSocket - socket</h2><h2 id="11-UDP协议_1&gt;在IP协议基础上添加了另一层地址(端口)，2&gt;对数据传输过程中可能产生的错误进行了检测，并抛弃已经损坏的数据。_UDP套接字比TCP的优势：保留边界信息。尽力而为，效率高，节约流量，灵活性，便于扩展。_DatagramSocket和DatagramPacket">11.UDP协议 1&gt;在IP协议基础上添加了另一层地址(端口)，2&gt;对数据传输过程中可能产生的错误进行了检测，并抛弃已经损坏的数据。 UDP套接字比TCP的优势：保留边界信息。尽力而为，效率高，节约流量，灵活性，便于扩展。 DatagramSocket和DatagramPacket</h2><h2 id="12-UDP_DatagramSocket_send()_和_receive()，发送/接收_DatagramPacket-需要设置阻塞时间socket-setSoTimeout，重试次数。失败后重试，一次次递减。">12.UDP DatagramSocket send() 和 receive()，发送/接收 DatagramPacket.需要设置阻塞时间socket.setSoTimeout，重试次数。失败后重试，一次次递减。</h2><h2 id="13-_UDP有长度限制_65535">13. UDP有长度限制 65535</h2><p>一个DatagramPacket实例中所运行传输的最大数据量为65507个字节，即UDP数据报文所能负载的最多数据，因此，使用一个有65600字节左右缓存数组的数据总是安全的。</p>
+<h2 id="14-TCP/IP协议的唯一约束是信息必须在块(chunk)中发送和接收数据,而块的长度必须是8的倍数。">14.TCP/IP协议的唯一约束是信息必须在块(chunk)中发送和接收数据,而块的长度必须是8的倍数。</h2><h2 id="15-阻塞-TCP-成帧技术–解决接收端如何定位消息的首尾位置的问题。1&gt;基于定界符（填充技术，用于特殊字符传递问题，缺点是要扫描所有内容）2&gt;显示长度（必须知道消息长度）">15.阻塞-TCP-成帧技术–解决接收端如何定位消息的首尾位置的问题。1&gt;基于定界符（填充技术，用于特殊字符传递问题，缺点是要扫描所有内容）2&gt;显示长度（必须知道消息长度）</h2><h2 id="16-服务器端不能一次只处理一个客户的请求，那也太弱了。_1&gt;一客户一线程-2&gt;线程池_for循环，每个循环中new_Thread">16.服务器端不能一次只处理一个客户的请求，那也太弱了。 1&gt;一客户一线程.2&gt;线程池 for循环，每个循环中new Thread</h2><p>run()方法中 无限循环 while(true){ serverSocket.accept(),传递给Runnable中执行 }.<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(PORT);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; threadPoolSize;i++)&#123;</span><br><span class="line">  Thread thread = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        	<span class="keyword">try</span>&#123;</span><br><span class="line">              Socket clientSocket = serverSocket.accept();</span><br><span class="line">              EchoProtocol.handleEchoClient(clientSocket);<span class="comment">//EchoProtocol实现Runnable接口</span></span><br><span class="line">            &#125;<span class="keyword">catch</span>(IOException ex)&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3&gt;线程池的优化版本-系统管理调度：Executor接口<br><figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">ServerSocket serverSocket</span> = new ServerSocket(PORT);</span><br><span class="line"><span class="constant">Executor service</span> = Executors.newCachedThreadPool();<span class="comment">//dispatch </span></span><br><span class="line">while(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="constant">	Socket clientSocket</span> = serverSocket.accept();</span><br><span class="line">    <span class="class"><span class="keyword">service</span>.<span class="title">execute</span>(new EchoProtocol(clientSocket));</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="17-多接收者_1&gt;广播broadcast_IPv4的本地广播地址(255-255-255-255),本地广播信息绝不会被路由器转发。2&gt;IPv4中的多播multicast地址范围是224-0-0-0到239-255-255-255">17.多接收者 1&gt;广播broadcast IPv4的本地广播地址(255.255.255.255),本地广播信息绝不会被路由器转发。2&gt;IPv4中的多播multicast地址范围是224.0.0.0到239.255.255.255</h2><h2 id="18-多播MulticastSocket(是DatagramSocket的一个子类)，设置多播数据报文生命周期TTL。MulticastSocket_joinGroup-">18.多播MulticastSocket(是DatagramSocket的一个子类)，设置多播数据报文生命周期TTL。MulticastSocket joinGroup.</h2><h2 id="19-NIO非阻塞状态">19.NIO非阻塞状态</h2><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SocketChannel</span> clientChannel = <span class="type">SocketChannel</span>.<span class="keyword">open</span><span class="literal">()</span>;</span><br><span class="line">clientChannel.configureBlocking(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="20-Selector_可以用于避免使用非阻塞式客户端中很浪费资源的忙等。">20.Selector 可以用于避免使用非阻塞式客户端中很浪费资源的忙等。</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Selector</span> <span class="keyword">selector</span> = <span class="keyword">Selector</span>.open();</span><br><span class="line"></span><br><span class="line">ServerSocketChannel channel = ServerSocketChannel.open();</span><br><span class="line">channel.<span class="keyword">register</span>(<span class="keyword">selector</span>,SelectionKey.OP+ACCEPT);<span class="comment">//注册事件</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Java TCP/IP Socket编程 读书笔记，一本好书，值得多看几遍<br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[深入剖析Tomcat]]></title>
+    <link href="http://zc14.github.io/2016/01/06/%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Tomcat/"/>
+    <id>http://zc14.github.io/2016/01/06/深入剖析Tomcat/</id>
+    <published>2016-01-06T01:20:00.000Z</published>
+    <updated>2016-01-06T07:52:39.741Z</updated>
+    <content type="html"><![CDATA[<a id="more"></a>
+<pre><code>Tomcat源码阅读文献
+</code></pre><h2 id="A-一个简单的Web服务器–构建Web服务">A.一个简单的Web服务器–构建Web服务</h2><h3 id="1-HTTP协议">1.HTTP协议</h3><ol>
+<li><p>请求<br><strong>请求方法  统一资源标识符URI  协议/版本</strong><br><strong>请求头</strong><br><strong>空行</strong><br><strong>实体</strong><br>[Demo]</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST <span class="regexp">/Platfform/</span>login.jsp HTTP/<span class="number">1.1</span></span><br><span class="line"><span class="string">Accept:</span> text<span class="regexp">/plain;text/</span>html</span><br><span class="line">Accept-<span class="string">Language:</span> en-gb</span><br><span class="line"><span class="string">Connection:</span> Keep-Alive</span><br><span class="line"><span class="string">Host:</span> localhost</span><br><span class="line">      </span><br><span class="line">username=jack&amp;password=<span class="number">1234</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相应<br><strong>协议/版本  状态码  描述</strong><br><strong>响应头</strong><br><strong>空行</strong><br><strong>响应实体段</strong><br>[Demo]</p>
+ <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Server: Microsoft-IIS/<span class="number">4.0</span></span><br><span class="line">Date:M<span class="keyword">on</span>,<span class="number">6</span> Jan <span class="number">2015</span></span><br><span class="line">Content-Type:text/html</span><br><span class="line">Content-Length:<span class="number">85</span></span><br><span class="line">       </span><br><span class="line"><span class="variable">&lt;html&gt;</span></span><br><span class="line">  <span class="variable">&lt;head&gt;</span></span><br><span class="line">     <span class="variable">&lt;title&gt;</span>hello world<span class="variable">&lt;/title&gt;</span></span><br><span class="line">  <span class="variable">&lt;/head&gt;</span></span><br><span class="line">  <span class="variable">&lt;body&gt;</span>Welcome <span class="keyword">to</span> Tomcat World<span class="variable">&lt;/body&gt;</span></span><br><span class="line"><span class="variable">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-Socket类_和_ServerSocket类">2.Socket类 和 ServerSocket类</h3><h3 id="3-构建应用程序">3.构建应用程序</h3><p>1.HttpServer接收请求(ServerSocket)<br>2.创建Socket对象(ServerSocket.accept())<br>3.创建输入输出流InputStream/OutputStream(socket.getInputStream()/socket.getOutputStream())<br>4.创建Request/Response对象<br>5.Request对象负责截取URI(自定义parse方法-用到indexOf()和substring)，传递给Response。<br>6.Response响应，构建HTTP相应格式信息，OutputStream给客户端。</p>
+</li>
+</ol>
+<h2 id="B-一个简单的servlet容器–用于解析servlet">B.一个简单的servlet容器–用于解析servlet</h2><h3 id="servet编程要使用javax-servlet和javax-servlet-http两个接口下的类">servet编程要使用javax.servlet和javax.servlet.http两个接口下的类</h3><p><strong>URLClassLoader是ClassLoader的子类，它用于从指向 JAR 文件和目录的 URL 的搜索路径加载类和资源。也就是说，通过URLClassLoader就可以加载指定jar中的class到内存中。</strong></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(jar文件全路径);</span><br><span class="line">URL url = <span class="keyword">file</span>.toURI().toURL();</span><br><span class="line">URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(<span class="keyword">new</span> URL[] &#123; url &#125;);</span><br><span class="line"><span class="keyword">Class</span> tidyClazz = loader.loadClass(所需<span class="keyword">class</span>的含包名的全名);</span><br></pre></td></tr></table></figure>
+<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   COnstants—常量类</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<a id="more"></a>
+<pre><code>Tomcat源码阅读文献
+</code></pre><h2 id="A-一个简单的Web服务器–构建Web服务">A.一个简单的Web服务器–构建Web服务</h2><h3 id="1-HTTP协议">1.HTTP协议</]]>
+    </summary>
+    
+      <category term="Tomcat" scheme="http://zc14.github.io/tags/Tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Java并发编程的艺术]]></title>
