@@ -89,7 +89,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-01-06T01:20:00.000Z" itemprop="datePublished">2016-01-06</time>
-    更新日期:<time datetime="2016-01-06T07:52:39.741Z" itemprop="dateModified">2016-01-06</time>
+    更新日期:<time datetime="2016-01-16T14:12:01.401Z" itemprop="dateModified">2016-01-16</time>
     
   </p>
 </header>
@@ -108,7 +108,7 @@
 </ol>
 <h2 id="B-一个简单的servlet容器–用于解析servlet">B.一个简单的servlet容器–用于解析servlet</h2><h3 id="servet编程要使用javax-servlet和javax-servlet-http两个接口下的类">servet编程要使用javax.servlet和javax.servlet.http两个接口下的类</h3><p><strong>URLClassLoader是ClassLoader的子类，它用于从指向 JAR 文件和目录的 URL 的搜索路径加载类和资源。也就是说，通过URLClassLoader就可以加载指定jar中的class到内存中。</strong></p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(jar文件全路径);</span><br><span class="line">URL url = <span class="keyword">file</span>.toURI().toURL();</span><br><span class="line">URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(<span class="keyword">new</span> URL[] &#123; url &#125;);</span><br><span class="line"><span class="keyword">Class</span> tidyClazz = loader.loadClass(所需<span class="keyword">class</span>的含包名的全名);</span><br></pre></td></tr></table></figure>
-<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   COnstants—常量类</p>
+<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   Cnstants—常量类</p>
 
     </div>
     <footer>

@@ -89,7 +89,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-01-16T02:36:59.000Z" itemprop="datePublished">2016-01-16</time>
-    更新日期:<time datetime="2016-01-16T09:49:10.052Z" itemprop="dateModified">2016-01-16</time>
+    更新日期:<time datetime="2016-01-16T10:51:29.814Z" itemprop="dateModified">2016-01-16</time>
     
   </p>
 </header>
@@ -145,7 +145,7 @@
 <p>Acceptor线程组负责接收来自外部的网络连接请求，并将建立好的连接，交到Poller线程组去处理。Acceptor的具体工作原理，可以从NioEndpoint$Acceptor.run方法中可以看出，(countUpOrAwaitConnection)控制接收的连接的数量，对接收的连接，(setSocketOptions)将其注册到Poller线程组中，如果在操作过程中遇到错误，则关闭连接。连接注册到Poller线程组后，Poller就能够读取连接中的数据，并进行处理。注册到Poller线程上的效果，是将socket封装后放入Poller线程内部维护的一个PollerEvent队列中，然后Poller线程运行时处理队列，将socket注册到这个Poller的Selector上。</p>
 <p>Poller线程组负责对已建立连接的socket进行处理。从NioEndpoint$Poller.run方法中可以看出Poller线程的工作原理，基于Java NIO来进行网络的读写。在run方法中，通过selector.select系列方法来获取数据，然后经由processKey到processSocket方法，封装成一个SocketProcessor对象后，放在EndPoint的线程池中执行，但实际的业务处理部分，是通过Endpoint的Handler进行处理。</p>
 <p>下面简要说下后面的处理流程<br><strong>SocketProcessor</strong> –&gt;  <strong>Http11ConnectionHandler</strong> –&gt;  <strong>Http11Processor</strong> –&gt;  <strong>CoyoteApapter</strong> –&gt;  <strong>StandardEngineValve</strong> –&gt;  <strong>StandHostValve</strong> –&gt;  <strong>StandardContextValve</strong> –&gt;  <strong>StandardWrapperValve</strong> –&gt;  <strong>Application Filter Chain</strong> –&gt;  <strong>Servlet</strong></p>
-<p>文章参考来源：大神 <a href="http://blog.csdn.net/yanlinwang/article/category/1398223" target="_blank" rel="external">http://blog.csdn.net/yanlinwang/article/category/1398223</a><br><a href="http://blog.csdn.net/cutesource/article/category/631854" target="_blank" rel="external">http://blog.csdn.net/cutesource/article/category/631854</a></p>
+<p>文章参考来源：大神 <a href="http://blog.csdn.net/yanlinwang/article/category/1398223" target="_blank" rel="external">http://blog.csdn.net/yanlinwang/article/category/1398223</a><br><a href="http://blog.csdn.net/cutesource/article/category/631854" target="_blank" rel="external">http://blog.csdn.net/cutesource/article/category/631854</a><br>明天继续，总结下深入剖析Tomcat，Tomcat的深入了解告一段落，开启新的路程。</p>
 
     </div>
     <footer>

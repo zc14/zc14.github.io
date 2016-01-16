@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2016-01-16T09:49:10.052Z</updated>
+  <updated>2016-01-16T10:51:29.814Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://zc14.github.io/2016/01/16/Tomcat8-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
     <id>http://zc14.github.io/2016/01/16/Tomcat8-源码解读/</id>
     <published>2016-01-16T02:36:59.000Z</published>
-    <updated>2016-01-16T09:49:10.052Z</updated>
+    <updated>2016-01-16T10:51:29.814Z</updated>
     <content type="html"><![CDATA[<p>关于学习tomcat源码的一些知识总结<br><a id="more"></a></p>
 <h2 id="总体介绍">总体介绍</h2><p>  <em><a href="http://tomcat.apache.org/tomcat-8.0-doc/config/http.html" target="_blank" rel="external">http://tomcat.apache.org/tomcat-8.0-doc/config/http.html</a></em><br>  1.AJP性能优于HTTP，网上有很多测试案例。所以正式环境优先使用二进制数据的AJP(需要Apache/ngnix配合使用)<br>  2.官方描述简单介绍</p>
 <h3 id="[Connectors-HTTP]">[Connectors-HTTP]</h3><p><strong>Each incoming request requires a thread for the duration of that request.</strong><br><em>每个请求是会有一个对应的线程去进行处理。</em> If more simultaneous requests are received than can be handled by the currently available request processing threads, additional threads will be created up to the configured maximum (the value of the <strong>maxThreads</strong> attribute). If still more simultaneous requests are received, they are stacked up inside the server socket created by the Connector, up to the configured maximum (the value of the <strong>acceptCount</strong> attribute). Any further simultaneous requests will receive “connection refused” errors, until resources are available to process them.</p>
@@ -70,7 +70,7 @@
 <p>Acceptor线程组负责接收来自外部的网络连接请求，并将建立好的连接，交到Poller线程组去处理。Acceptor的具体工作原理，可以从NioEndpoint$Acceptor.run方法中可以看出，(countUpOrAwaitConnection)控制接收的连接的数量，对接收的连接，(setSocketOptions)将其注册到Poller线程组中，如果在操作过程中遇到错误，则关闭连接。连接注册到Poller线程组后，Poller就能够读取连接中的数据，并进行处理。注册到Poller线程上的效果，是将socket封装后放入Poller线程内部维护的一个PollerEvent队列中，然后Poller线程运行时处理队列，将socket注册到这个Poller的Selector上。</p>
 <p>Poller线程组负责对已建立连接的socket进行处理。从NioEndpoint$Poller.run方法中可以看出Poller线程的工作原理，基于Java NIO来进行网络的读写。在run方法中，通过selector.select系列方法来获取数据，然后经由processKey到processSocket方法，封装成一个SocketProcessor对象后，放在EndPoint的线程池中执行，但实际的业务处理部分，是通过Endpoint的Handler进行处理。</p>
 <p>下面简要说下后面的处理流程<br><strong>SocketProcessor</strong> –&gt;  <strong>Http11ConnectionHandler</strong> –&gt;  <strong>Http11Processor</strong> –&gt;  <strong>CoyoteApapter</strong> –&gt;  <strong>StandardEngineValve</strong> –&gt;  <strong>StandHostValve</strong> –&gt;  <strong>StandardContextValve</strong> –&gt;  <strong>StandardWrapperValve</strong> –&gt;  <strong>Application Filter Chain</strong> –&gt;  <strong>Servlet</strong></p>
-<p>文章参考来源：大神 <a href="http://blog.csdn.net/yanlinwang/article/category/1398223" target="_blank" rel="external">http://blog.csdn.net/yanlinwang/article/category/1398223</a><br><a href="http://blog.csdn.net/cutesource/article/category/631854" target="_blank" rel="external">http://blog.csdn.net/cutesource/article/category/631854</a></p>
+<p>文章参考来源：大神 <a href="http://blog.csdn.net/yanlinwang/article/category/1398223" target="_blank" rel="external">http://blog.csdn.net/yanlinwang/article/category/1398223</a><br><a href="http://blog.csdn.net/cutesource/article/category/631854" target="_blank" rel="external">http://blog.csdn.net/cutesource/article/category/631854</a><br>明天继续，总结下深入剖析Tomcat，Tomcat的深入了解告一段落，开启新的路程。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>关于学习tomcat源码的一些知识总结<br>]]>
@@ -108,7 +108,7 @@
     <link href="http://zc14.github.io/2016/01/06/%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90Tomcat/"/>
     <id>http://zc14.github.io/2016/01/06/深入剖析Tomcat/</id>
     <published>2016-01-06T01:20:00.000Z</published>
-    <updated>2016-01-06T07:52:39.741Z</updated>
+    <updated>2016-01-16T14:12:01.401Z</updated>
     <content type="html"><![CDATA[<a id="more"></a>
 <pre><code>Tomcat源码阅读文献
 </code></pre><h2 id="A-一个简单的Web服务器–构建Web服务">A.一个简单的Web服务器–构建Web服务</h2><h3 id="1-HTTP协议">1.HTTP协议</h3><ol>
@@ -122,7 +122,7 @@
 </ol>
 <h2 id="B-一个简单的servlet容器–用于解析servlet">B.一个简单的servlet容器–用于解析servlet</h2><h3 id="servet编程要使用javax-servlet和javax-servlet-http两个接口下的类">servet编程要使用javax.servlet和javax.servlet.http两个接口下的类</h3><p><strong>URLClassLoader是ClassLoader的子类，它用于从指向 JAR 文件和目录的 URL 的搜索路径加载类和资源。也就是说，通过URLClassLoader就可以加载指定jar中的class到内存中。</strong></p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(jar文件全路径);</span><br><span class="line">URL url = <span class="keyword">file</span>.toURI().toURL();</span><br><span class="line">URLClassLoader loader = <span class="keyword">new</span> URLClassLoader(<span class="keyword">new</span> URL[] &#123; url &#125;);</span><br><span class="line"><span class="keyword">Class</span> tidyClazz = loader.loadClass(所需<span class="keyword">class</span>的含包名的全名);</span><br></pre></td></tr></table></figure>
-<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   COnstants—常量类</p>
+<h3 id="应用程序">应用程序</h3><p>   HttpServer—入口，ServletSocket–Socket–Input/Output<br>   Request—&gt;implements ServletRequest请求<br>   Response—&gt;implements ServletResponse响应–PrintWriter<br>   StaticResourceProcessor—静态html资源文件解析<br>   ServletProcessor—servlet类解析<br>   Cnstants—常量类</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<a id="more"></a>
