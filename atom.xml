@@ -4,7 +4,7 @@
   <subtitle><![CDATA[叽里呱啦]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zc14.github.io/"/>
-  <updated>2016-01-16T10:51:29.814Z</updated>
+  <updated>2016-01-17T09:57:04.075Z</updated>
   <id>http://zc14.github.io/</id>
   
   <author>
@@ -13,6 +13,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Tomcat源码知识点总结]]></title>
+    <link href="http://zc14.github.io/2016/01/17/Tomcat%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://zc14.github.io/2016/01/17/Tomcat知识点总结/</id>
+    <published>2016-01-17T01:38:32.000Z</published>
+    <updated>2016-01-17T09:57:04.075Z</updated>
+    <content type="html"><![CDATA[<h2 id="基于JMX的资源管理">基于JMX的资源管理</h2><p>   JMX可用于管理一个应用程序，一种实现，一个服务，一个设备，一个用户等。<br>   标准Bean–需要修改原来的类，实现一个MBean接口，灵活性不高，但是比较容易实现。<br>   模型Bean–灵活性高，Tomcat采用的就是这种方式。最大的挑战在于告诉ModelMBean对象托管资源的哪些属性和方法可以暴露给代理。这些方法写起来还是比较复杂的，为了简化工作，Apache基金会造就了<strong>Commons Modeler</strong>。通过解析配置文件xml的形式简化代码。</p>
+<h2 id="StringManager-单例模式(内部类)">StringManager-单例模式(内部类)</h2><p>   ResourceBundle-实现国际化–每个核心包下面有三个properties文件，错误的粒度最小化</p>
+<h2 id="使用字符数组提单字符串–提高效率。跟自己的想法又出入，正则。">使用字符数组提单字符串–提高效率。跟自己的想法又出入，正则。</h2><h2 id="coyote_tomcat默认的连接器">coyote tomcat默认的连接器</h2><h2 id="HTTP/1-1_特性_长连接/块编码/状态码100">HTTP/1.1 特性 长连接/块编码/状态码100</h2><h2 id="采用对象池来代替频繁的对象创建工作">采用对象池来代替频繁的对象创建工作</h2><h2 id="URLClassLoader">URLClassLoader</h2><p>   File file = new File(jar文件全路径);<br>   URL url = file.toURI().toURL();<br>   URLClassLoader loader = new URLClassLoader(new URL[]{url});<br>   Class tidyClazz = loader.loadClass(所需class的含包名的全名);</p>
+<h2 id="代码分模块-降低耦合度_HttpConnector–Container">代码分模块-降低耦合度 HttpConnector–Container</h2><h2 id="容器Container是在哪儿与Connector建立连接的">容器Container是在哪儿与Connector建立连接的</h2><h2 id="老版本的Pipeline_与_Valve_在新版本中是怎么流转的">老版本的Pipeline 与 Valve 在新版本中是怎么流转的</h2><h2 id="组件生命周期-观察者模式">组件生命周期-观察者模式</h2><ul>
+<li>管理org.apache.catalina.Lifecycle </li>
+<li>事件监听器  org.apache.catalina.LifecycleListener </li>
+<li>事件  org.apache.catalina.LifecycleEvent <ul>
+<li>工具类 org.apache.catalina.util.LifecycleSupport<br>Tomcat组件可以嵌套，所以启动一个大容器，小容器也跟着启动。关闭上同样的</li>
+</ul>
+</li>
+</ul>
+<h2 id="自定义类的载入器">自定义类的载入器</h2><ol>
+<li>安全 WEB-INF/classes 目录及其子目录</li>
+<li>灵活，支持自动重载。老版本的设计理念<strong>类载入器使用一个额外的线程来不断得检查servlet类和其他类的文件的时间戳。</strong></li>
+<li>org.apache.catalina.Loader/org.apache.catalina.loader.WebappLoader</li>
+<li>提供缓存功能 protected final Map<string, resourceentry=""> resourceEntries = new ConcurrentHashMap&lt;&gt;()</string,></li>
+</ol>
+<h2 id="后台线程的统一管理_org-apache-catalina-core-StandardContext_—_backgroundProcess(),被org-apache-catalina-core-ContainerBase类中的一个专用线程周期性地调用。">后台线程的统一管理 org.apache.catalina.core.StandardContext — <strong>backgroundProcess()</strong>,被org.apache.catalina.core.ContainerBase类中的一个专用线程周期性地调用。</h2><h2 id="Session_管理">Session 管理</h2><ol>
+<li>Session管理器组件负责管理Session对象。例如，创建和销毁Session对象。Session管理器是org.apache.catalina.Manager接口的实例。</li>
+<li>用了外观模式StandardSessionFacade</li>
+<li>session对象可以备份，也可以换出。org.apache.catalina.session.PersistentManagerBase-Store/FileStore/JDBCStore</li>
+</ol>
+<h2 id="Digester库的使用">Digester库的使用</h2><p>Apache基金会子项目，用于映射配置文件，创建对象</p>
+<h2 id="钩子函数-回调函数，用于不正常退出造成的数据没处理完的情况_在tomcat的Catalina类中start方法就有体现">钩子函数-回调函数，用于不正常退出造成的数据没处理完的情况  在tomcat的Catalina类中start方法就有体现</h2><p>   <strong>Runtime.getRuntime().addShutdownHook(xxx implements Runnable);</strong></p>
+<h2 id="统一启动/关闭服务的_服务器Server组件和服务Service组件">统一启动/关闭服务的 服务器Server组件和服务Service组件</h2><p>   org.apache.catalina.Server—org.apache.catalina.core.StandardServer<br>   org.apache.catalina.Service—org.apache.catalina.core.StandardService<br>   另外还有与生命周期有关的方法</p>
+<h2 id="参考我的另外一篇文章，在为知笔记上，可以说总结的比较全。">参考我的另外一篇文章，在为知笔记上，可以说总结的比较全。</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="基于JMX的资源管理">基于JMX的资源管理</h2><p>   JMX可用于管理一个应用程序，一种实现，一个服务，一个设备，一个用户等。<br>   标准Bean–需要修改原来的类，实现一个MBean接口，灵活性不高，但是比较容易实现。<br>   模型Bean]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Tomcat8 源码解读]]></title>
