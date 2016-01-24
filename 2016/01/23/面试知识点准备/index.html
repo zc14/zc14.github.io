@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>面试知识点准备 | zc14-紫竹林</title>
+  <meta name="author" content="周聪">
+  
+  <meta name="description" content="加班...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="面试知识点准备"/>
+  <meta property="og:site_name" content="zc14-紫竹林"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="zc14-紫竹林" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="zc14-紫竹林" title="zc14-紫竹林"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">zc14-紫竹林</h1>
+				<h2 class="blog-motto">叽里呱啦</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	面试知识点准备
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://zc14.github.io" title="周聪">周聪</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-01-23T09:28:22.000Z" itemprop="datePublished">2016-01-23</time>
+    更新日期:<time datetime="2016-01-24T05:49:33.832Z" itemprop="dateModified">2016-01-24</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h2 id="1-知识点总结">1.知识点总结</h2><ul>
+<li><h3 id="常见面试题整理">常见面试题整理</h3><p>1.Aio和Nio区别<br>  <strong>NIO:同步非阻塞；AIO:异步非阻塞</strong><br>  <strong>同步异步是指是否是同一次请求（便于理解，举个例子）。阻塞和非阻塞就是oio和nio的问题，指的是调用一个方法能否立即返回结果。</strong><br>  <em>如果把内核比作快递，NIO就是你要自己时不时到官网查下快递是否已经到了你所在城市，然后自己去取快递；AIO就是快递员送货上门了。</em></p>
+<p>2.你做过最得意的项目是什么<br>  <strong>必须想办法突出项目的亮点，并且突出自己在团队中的重要性。</strong></p>
+<p>3.HashMap是如何实现的<br>  <strong>本质：数组+链表， 链表的节点就是 k-v 对。H</strong><br>  <strong>Hashmap中有一个饱和因子的变量，默认上是0.75，实际上也是通常情况下不会产生hash冲突的最佳设置（当然凡事也有例外）</strong><br>  <strong>这个扩容会重做整个散列数组+链表，代价很大，所以大牛们都建议使用hashmap时最好指定需要的容量大小。</strong><br>  <strong>一般需要使用大小为N，new HashMap时最好指定（N/饱和因子）的容量，或者指定大于N的最小的2的幂。</strong></p>
+<p>4.为什么要使用Spring<br> <strong>与EJB对比。重量级模块耦合度高。/用哪个，配置哪个。 Ioc模块+Aop模块。 润滑剂 让业务功能实现更方便、更优雅。</strong></p>
+<p>5.如何减少上下文切换<br> <strong>上下文切换是指CPU的控制权由运行任务转移到另外一个就绪任务时所发生的事件；</strong></p>
+<p> <strong>对于任务耗时短的情况，要求线程尽量少，如果线程太多，有可能出现线程切换和管理的时间，大于任务执行的时间，那效率就低了；</strong><br> <strong>耗时长的任务，要分是cpu任务，还是io等类型的任务。如果是cpu类型的任务，线程数不宜太多；但是如果是io类型的任务，线程多一些更好，可以更充分利用cpu</strong><br> <strong>高并发，低耗时的情况，上下文切换 本来就多，并且高并发就意味着CPU是处于繁忙状态的， 增加更多地线程也不会让线程得到执行时间片, 反而会增加线程切换的开销.</strong><br> <strong>低并发，高耗时，保证有空闲线程，接收新任务，可以减少线程切换。</strong><br> <strong>高并发高耗时：1要分析任务类型，2增加排队，3、加大线程数</strong></p>
+</li>
+</ul>
+<p>  6.Spring有什么缺点<br>   <strong>变的复杂。东西越来越多，拆分模块出来，不知道用什么。</strong><br>   <strong>学习源码困难度加大。</strong></p>
+<p>  7.有限的资源里处理一个较大的数据<br>   <strong>如果你处理逻辑，跟全量数据有关，例如对全部数据进行排序，这个可以采用bitmap(索引，数据压缩方面有好的应用),堆排序等之类的，网上可以搜到。<br>但是如果你的处理逻辑跟全量数据无关，那就跟简单了，你可以设置一个buffer，每次读满一个buffer，处理完了，再读下一个buffer。</strong></p>
+<p>  8.高并发，执行耗时短的任务，还有低并发，执行耗时长的任务，各自选取什么样的线程池会比较合理？为什么？如果业务场景是高并发，且任务耗时长时，有什么解决思路？<br>  <strong>线程池的关键点是：1、尽量减少线程切换和管理的开支； 2、最大化利用cpu。</strong><br>  <strong>对于1，要求线程数尽量少，这样可以减少线程切换和管理的开支；<br>对于2，要求尽量多的线程，以保证CPU资源最大化的利用。</strong><br>  <strong>对于高并发耗时长的情况，我认为，思路就是把一个难以解决的问题转化成我们已知的已经有解决方案的问题，以此来解决。<br>所以 ，高并发又耗时长，可以转化为<br>      1、高并发，耗时短的问题   –&gt;   异步处理+回调，和情况1吻合<br>      2、低并发，耗时长的问题   –&gt;   前端加load balance，把高并发分摊成若干低并发，和情况2吻合<br>其实说到核心，如果真遇到高并发耗时长的场景，只能是加机器，加计算单元（无论是异步加回调还是load balance）</strong></p>
+<p>  9.数据库中内连接与外连接的区别<br>  <strong>这个问题从数学的角度更容易理解。<br>inner join：A与B的交集<br>left join：A的全集<br>right join：B的全集<br>full join：A与B的并集<br>cross join：A与B的笛卡尔积</strong></p>
+<p>  10.经常看到url中很长的一串请求参数，为什么不采用post方式<br>  <strong>1 浏览器地址栏打开的默认就是GET，所以链接用GET很方便。<br>2 POST的提交需要表单或js提交，麻烦。<br>3 GET可以使用缓存<br>4 GET有利于SEO</strong></p>
+<p>  11.有一个生成唯一串的需求，并发请求量非常大<br><strong>1.生成串由单线程批量生成。<br>2.并发获取的线程由队列（队列采用链表的阻塞队列实现）进行控制。<br>串的生成格式：ip+进程号+当前时间(精确到纳秒)+计数器（每次批量生成串的时候重置计数器为0）<br>可以解决，多机多JVM实例的问题，计数器可以解决时间相同的问题</strong></p>
+<p>  12.处理大量并发用户访问网页，并且如何跟踪每个用户<br><strong>页面静态化，还有cdn代理等等 总之尽量减少或避免用户加载页面时与服务后台产生动态数据的加载</strong></p>
+<p> 13.高并发解决方案<br> <strong>浏览器到前台页面，负载均衡，HTML静态化，缓存，图片服务器分离。数据库，读写分离，垂直拆分数据库，水平拆分数据库。</strong></p>
+<p> 14.1亿条数据如何保存<br>  <strong>生成txt或者csv数据文件，再直接通过数据文件导入到数据库中。先删除索引，导入后在重建。</strong></p>
+<p>15.1000万条数据如何取出来<br>  分页？</p>
+<p>16.有3个线程ABC。按照ABC来运行（A线程输出A，B线程输出B，C线程输出C，以此类推，循环输出）。<br>  <strong>join</strong><br>  <strong>用 Reentrantlock，用它的newCondition() 方法创建3个condition，按顺序调用 condition 的await和signal 方法就可以了，具体看Reentrantlock 和Condition 讲解。</strong></p>
+<p>17.threadlocal原理<br> **ThreadLocal 主要目的：<br>1、在同一线程中方法与方法，类与类之间的共享内容传输（也是官方创建ThreadLocal的本意）。<br>2、利用ThreadLocal 规避线程安全问题，这种方式已经大量应用，如Spring mvc 在Controller中注入全局HttpSession对象。</p>
+<p>ThreadLocal原理：<br>Thread 类成员变量 ThreadLocal.ThreadLocalMap 详细不说了。**</p>
+<p>18.分库分表如何控制事务，也就是分布式事务有什么解决方案<br><strong>所谓分布式事务最终解决的是数据一致性的问题，这也是典型的cap定理里面的东西没啥新鲜的。那么如何解决？<br>1，用redis做一个分布式锁，不过redis集群很麻烦，不太稳定（目前我们公司再用）<br>2，zk锁，推荐使用。：<br>3，数据库层面的东西，有一个mycat的东西，你可以了解下。</strong></p>
+<p>19.让您做一个电商平台，您如何设置一个在买家下订单后的”第60秒“发短信通知卖家发货，您需要考虑的是 像淘宝一样的大并发量的订单。<em> ★★★★★★★★★★★★★★★★★<strong>
+  </strong><br>  可以通过分布式调度框架来实现,将这种通用的调度任务交给专门的系统来处理,接收下单的时间和订单的基本信息做为触发这个任务的参数即可<br>触发动作可以用过类似kafka的消息中间件进行传递*</em></p>
+<p><strong>1、具有排序功能的队列<br>2、Redis+定时器</strong><br><em>原理：第一种思路也就是大家推荐的延迟队列实现的原理，其就是一个按时间排好序的队列，每次put的时候排序，然后take的时候就计算时间是否过期，如果过期则返回队列第一个元素，否则当前线程阻塞X秒，这个也是JDK 自带 DelayQueue 的思路。详细可看源码</em><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pubic E <span class="title">take</span>(<span class="params"></span>) throws InterruptedException</span>&#123;</span><br><span class="line">  final ReentrantLock <span class="keyword">lock</span> = <span class="keyword">this</span>.<span class="keyword">lock</span>;</span><br><span class="line">  <span class="keyword">lock</span>.lockInterruptibly();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;;)&#123;</span><br><span class="line">      E first = q.peek();</span><br><span class="line">      <span class="keyword">if</span>(first == <span class="keyword">null</span>)</span><br><span class="line">      available.await();</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">long</span> delay = first.getDelay(TimeUnit.NANOSECONFS);</span><br><span class="line">        <span class="keyword">if</span>(delay &lt;=<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> q.poll();</span><br><span class="line">        <span class="function"><span class="keyword">else</span> <span class="title">if</span>(<span class="params">leader != <span class="keyword">null</span></span>)</span><br><span class="line">        available.<span class="title">await</span>(<span class="params"></span>)</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">         Thread thisThread = Thread.currentThread();</span><br><span class="line">         leader = thisThread;</span><br><span class="line">         <span class="keyword">try</span>&#123;</span><br><span class="line">            available.awaitNanos(delay);</span><br><span class="line">         &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(leader == thisThread)</span><br><span class="line">           leader = <span class="keyword">null</span>;</span><br><span class="line">         &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(leader == <span class="keyword">null</span> &amp;&amp; peek() != <span class="keyword">null</span>)</span><br><span class="line">    available.signal();</span><br><span class="line">    <span class="keyword">lock</span>.unlock();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>原理：第二种思路需要利用Redis的有序集合，说到使用 Redis 就不得不考虑Score的设计，因为它直接决定你代码的复杂度，你思路的清晰性，在这我并没有采用 林中漫步 先生的设计，而是通过精确到秒的时间做Score（去掉毫秒），然后使用线程每一秒扫一次，使用当前时间作为zrangeBysocre命令的Score去查询。详细请看代码。<br>业务场景：按京东一天500万的成交量，一天主要成交时间为8小时，计算得出每秒173个订单，当然实际上订单不能均匀分布在每秒，但我们主要为了论证思想的可行性。<br>代码实现：这里首先我简单的利用Spring Scheduled作为订单的生产者，每一秒制造170个订单，放入Redis，注意Score的生成，为当前时间的后60秒，removeMillis()生成去掉毫秒的时间戳作为Rredis的Zadd方法的 Score（不了解的可以百度下）。</em><br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Componment</span><br><span class="line"><span class="keyword">public</span> class OrderHanlder&#123;</span><br><span class="line">  <span class="keyword">private</span> Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"127.0.0.1"</span>,<span class="number">6379</span>);</span><br><span class="line">  <span class="keyword">private</span> AtomicLong currentOrderId = <span class="keyword">new</span> AtomicLong(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">private</span> simpleDateFormat sdformat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> KEY = <span class="string">"orders"</span>;</span><br><span class="line">  </span><br><span class="line">  @Scheduled(cron = <span class="string">"0/1 * * * * *"</span>)</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> initData() <span class="keyword">throws</span> ParseException&#123;</span><br><span class="line">   Calendar cal = <span class="keyword">new</span> Calendar();</span><br><span class="line">   cal.<span class="built_in">add</span>(Calender.SECOND,<span class="number">60</span>);<span class="comment">//获取当前日期的后60秒</span></span><br><span class="line">   Map&lt;<span class="keyword">String</span>,Double&gt; scores = <span class="keyword">new</span> <span class="keyword">HashMap</span>&lt;&gt;();</span><br><span class="line">   <span class="comment">//一天500w的成交量，8小时计算，每秒成交173份订单</span></span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>;i&lt;<span class="number">170</span>;i++)&#123;</span><br><span class="line">     currentOrderId.getAndIncrement();</span><br><span class="line">     scores.put(currentOrderId.toString(),(<span class="keyword">double</span>)removeMillis(cal));</span><br><span class="line">     jedis.zadd(<span class="variable">key</span>,scores);</span><br><span class="line">     System.out.<span class="built_in">println</span>(<span class="string">"当前订单ID：---------"</span>+currentOrderId);</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">long</span> removeMills(Canendar cal) <span class="keyword">throws</span> ParseException&#123;</span><br><span class="line">    <span class="keyword">String</span> date = sdformat.format(cal.getTime());</span><br><span class="line">    Date nowTime = sfformat.parse(date);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"---------当前时间： "</span>+nowTime + <span class="string">"-----毫秒数 "</span>+nowTime.getTime());</span><br><span class="line">    <span class="keyword">return</span> nowTime.getTime();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二步：同样利用Spring Scheduled 一秒钟心跳一次，每次利用当前时间作为Key 从Redis 取数据。<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Scheduled</span>(cron=<span class="string">"0/1 * * * * *"</span>)</span><br><span class="line">public <span class="type">void</span> consumer() throws <span class="type">ParseException</span>&#123;</span><br><span class="line">  <span class="type">Calendar</span> cal = <span class="type">Calendar</span>.getInstance();</span><br><span class="line">  long score = removeMills(cal);</span><br><span class="line">  <span class="type">Set</span>&lt;<span class="type">String</span>&gt; orders = <span class="type">Jedis</span>.zrangeByScore(<span class="type">KEY</span>,<span class="number">0</span>,score);//早于当前时间的都应该被发送，因为可能订单太多没有处理过来</span><br><span class="line">  <span class="keyword">if</span>(orders.isEmpty()||orders,size() == <span class="number">0</span>)</span><br><span class="line">    <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"========================暂时没有订单，时间："</span>+cal.getTime());</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">String</span> order:orders)&#123;</span><br><span class="line">    <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"^^^^^^^^^^^^^^^^^^^^^^^^处理订单，订单ID： "</span>+order);</span><br><span class="line">    long <span class="literal">result</span> = jedis.zrem(<span class="type">KEY</span>,order);</span><br><span class="line">    <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"^^^^^^^^^^^^^^^^^^^^^^^^处理完毕，订单ID： "</span>+order+<span class="string">" 删除结果"</span>+(<span class="literal">result</span> ==<span class="number">1</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> private long removeMills(<span class="type">Canendar</span> cal) throws <span class="type">ParseException</span>&#123;</span><br><span class="line">    <span class="type">String</span> date = sdformat.format(cal.getTime());</span><br><span class="line">    <span class="type">Date</span> nowTime = sfformat.parse(date);</span><br><span class="line">    <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"---------当前时间： "</span>+nowTime + <span class="string">"-----毫秒数 "</span>+nowTime.getTime());</span><br><span class="line">    <span class="keyword">return</span> nowTime.getTime();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>经过测试，没有出现漏单的情况，这只是简单的实现，很多地方可以优化，在实际中用也可能会出现很多问题，需要不断完善，此案例只是提供思路，另外我觉得JDK的 DelayQueue 相对于Redis来说没有那么好，因为Queue毕竟每次取一个，如果同一时间的比较多可能不能符合当前这种时间严谨的需求，另外他是单机的，有时间我去研究下kafka、Rabbit的延迟队列再来补充。</p>
+<p>20.多维度查询的解决方案有哪些？<br><em>我们现在的公寓特别多，在页面用户可以根据多种维度进行筛选，比如“面积、房间、豪华程度、小区、新旧、交通、价格……”，这种场景如果放在数据库进行过滤，肯定是作死的节奏。</em><br> 这种一般用Nosql，而不是关系型数据库，比如elasticsearch搜索引擎，k-v键值对，可对同个商品同时建立多个标签进行多维度搜索，支持分页，高性能<br> 一般可以通过搜索引擎的方式来解决,比如ES,性能上无压力,无限集群<br> solr facet</p>
+<p>21.集群环境如何保证某个机器挂掉了ng请求不再有访问打到这个机器<br><strong>Nginx有个负载均衡的插件叫做 nginx-upstream-fair：按后端服务器的响应时间来分配请求，响应时间短的优先分配。<br>这种负载策略应该可以解决你那种问题，不用轮询。</strong></p>
+<p>22.遇到OOM如何处理<br><strong>首先，要搞清OOM的分类：<br>OMM主要三类： permgen OOM , heap OOM, stack overflow<br>permgen OOM: 这个主要是由于加载的类太多，或者反射的类太多， 还有 调用 String.intend（jdk7之前）也会造成这个问题。所以出现了这个问题，就检查这三个方面；<br>heap OOM： 基本是按照 1楼的方式就可以解决了，主要是因为一些无用对象没有及时释放造成的，检查代码加上 heap dump 去分析吧<br>stack overflow： 这个主要是由于调用层数，或者递归深度太大造成的，看异常信息，基本上就能定位得出来了</strong></p>
+<ul>
+<li><h3 id="Java_集合类源码_？？？">Java 集合类源码 ？？？</h3></li>
+<li><h3 id="设计模式的实际应用_？？？">设计模式的实际应用 ？？？</h3><p>1.单例模式<br>2.工厂模式<br>3.责任链模式<br>4.代理模式<br>5.模板方法模式-回调函数<br>6.策略模式<br>7.组合模式-递归调用<br>8.门面模式<br>9.观察者模式<br>10.中介者模式<br>11.享元模式<br>12.原型模式<br>13.命令模式<br>14.迭代器模式<br>15.桥接模式<br>16.构造者模式<br>17.适配器模式<br>18.备忘录模式<br>19.访问者模式<br>20.工厂方法模式<br>21.状态模式<br>22.解释器模式<br>23.装饰者模式</p>
+</li>
+<li><h3 id="Spring">Spring</h3><p>参考黄亿华老师的<strong>1000行代码读懂Spring核心</strong></p>
+</li>
+<li><h3 id="Tomcat">Tomcat</h3><p>参考前面总结的内容</p>
+</li>
+<li><h3 id="Openfire源码_-_10天">Openfire源码 - 10天</h3></li>
+<li><h3 id="Mysql_sql优化_-_3天">Mysql sql优化 - 3天</h3></li>
+<li><h3 id="Java_多线程_-_？？">Java 多线程 - ？？</h3></li>
+<li><h3 id="Redis_-_1天">Redis - 1天</h3><p>回顾下红丸的教程</p>
+</li>
+<li><h3 id="脚本经验_-_nutch启动脚本">脚本经验 - nutch启动脚本</h3></li>
+<li><h3 id="Jvm调优">Jvm调优</h3><p>实战例子？？？</p>
+</li>
+<li><h3 id="TCP/HTTP_协议，粘包，拆包问题_Socket/ServerSocket">TCP/HTTP 协议，粘包，拆包问题 Socket/ServerSocket</h3><p>自己实现简单的web服务器 ？？？</p>
+</li>
+</ul>
+<h2 id="2-简历准备">2.简历准备</h2><h2 id="3-工作总结">3.工作总结</h2><h2 id="4-小故事贮备">4.小故事贮备</h2><h2 id="5-职业规划">5.职业规划</h2><h2 id="6-心态调整">6.心态调整</h2><h2 id="7-准备面试">7.准备面试</h2>
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2016/01/17/Tomcat知识点总结/" class="alignright next" title="Tomcat源码知识点总结">Tomcat源码知识点总结</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2016/01/23/面试知识点准备/" data-title="面试知识点准备" data-url="http://zc14.github.io/2016/01/23/面试知识点准备/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"http://zc14.github.io/"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" id="zc14-search-input" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zc14.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hello/">hello</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/并发编程/" style="font-size: 10px;">并发编程</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/金典/" style="font-size: 20px;">金典</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <!--
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
+		
+		<a href="http://zc14.github.io/about" target="_blank" title="周聪">周聪</a>
+		
+		</p>
+</div>
+</footer>
+  -->
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+	  _st('install','ZsQjP1Wjp4ayEpx825-R','2.0.0');
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
