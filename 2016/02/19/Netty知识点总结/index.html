@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>Netty知识点总结 | zc14-紫竹林</title>
+  <meta name="author" content="周聪">
+  
+  <meta name="description" content="加班...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Netty知识点总结"/>
+  <meta property="og:site_name" content="zc14-紫竹林"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="zc14-紫竹林" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="zc14-紫竹林" title="zc14-紫竹林"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">zc14-紫竹林</h1>
+				<h2 class="blog-motto">叽里呱啦</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	Netty知识点总结
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://zc14.github.io" title="周聪">周聪</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-02-19T12:48:29.000Z" itemprop="datePublished">2016-02-19</time>
+    更新日期:<time datetime="2016-02-19T12:49:05.695Z" itemprop="dateModified">2016-02-19</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h1 id="1_传统IO和NIO比较">1 传统IO和NIO比较</h1><ul>
+<li>单线程情况下只能有一个客户端响应</li>
+<li>线程池可以有多个客户端连接，但是非常消耗性能</li>
+<li>NIO技术 线程+selector</li>
+</ul>
+<h2 id="NIO的重要类">NIO的重要类</h2><pre><code><span class="label">ServerSocketChannel</span> 对比 ServerSocket
+<span class="label">SocketChannel</span> 对比 Socket
+<span class="keyword">Selector
+</span><span class="keyword">SelectionKey</span>
+</code></pre><h1 id="2_Netty3_入门">2 Netty3 入门</h1><p> <strong>SimpleChannelHandler</strong> 处理消息接收和写<br> {<br>   messageReceived接收消息<br>   channelConnected新连接，通常用来检测IP是否为黑名单<br>   channelDisconnected链接关闭，可以再用户断线的时候清楚用户的缓存数据等<br> }</p>
+<h1 id="3_提高NIO性能">3 提高NIO性能</h1><p>   一个NIO可以有多个selector。分区域管辖</p>
+<h1 id="4_精华">4 精华</h1><p>  <strong>一个Thread+队列 == 一个单线程线程池 ====&gt; 线程安全的，人无是线性串行执行的</strong><br>  线程安全，不会产生阻塞效应，使用对象组<br>  线程不安全，会产生阻塞效应，使用对象池</p>
+<h1 id="5_心跳">5 心跳</h1><p>  <strong>IdleStateHandler</strong>，用于检测会话状态</p>
+<pre><code><span class="number">1</span>. 心跳其实就是一个普通的请求，特点是数据简单，业务也简单
+ <span class="number">2</span>. 心跳对于服务器端来说，定时清除闲置会话<span class="function"><span class="title">inactive</span><span class="params">(netty5)</span></span> <span class="function"><span class="title">channelclose</span><span class="params">(netty3)</span></span>
+ <span class="number">3</span>. 心跳对于客户端来说，用来检测会话是否断开，是否重连。用来检测网络延迟
+</code></pre><h1 id="6_ProtoBuf">6 ProtoBuf</h1><ol>
+<li>protocol buff 是一种协议，from google，用于序列化</li>
+<li>Java序列化协议也是其中一种</li>
+<li>两者目的，将对象序列化城字节数组，或者说是二进制数据</li>
+<li>优点：节约空间 int 4字节用 1~5字节表示，缺点：不易阅读</li>
+</ol>
+<h1 id="7_自定义数据包协议">7 自定义数据包协议</h1><ol>
+<li>问题来源 粘包拆包<br>i am a gril i want a boy<br>粘包  i am a grili want a boy<br>分包  i am<br>   a gril i want a boy</li>
+<li>原因：没有一个稳定的数据结构</li>
+<li><p>解决：1.增加分隔符</p>
+<pre><code><span class="number">2.</span>长度+数据
+</code></pre><h1 id="8_自定义数据包格式举例">8 自定义数据包格式举例</h1><ul>
+<li>数据包格式</li>
+<li>+———-——+———–——+———-——+———-——+———–——+</li>
+<li>| 包头    | 模块号   | 命令号  |  长度  |   数据   |</li>
+<li>+———-——+———–——+———-——+———-——+———–——+</li>
+<li>包头4字节</li>
+<li>模块号2字节short</li>
+<li>命令号2字节short</li>
+<li>长度4字节(描述数据部分字节长度)</li>
+</ul>
+</li>
+</ol>
+<h1 id="9_Netty解决粘包拆包问题">9 Netty解决粘包拆包问题</h1><p>   可以借助<strong>FrameDecoder</strong></p>
+<h1 id="10_Netty_源码分析">10 Netty 源码分析</h1><ol>
+<li>消息如何在管道中流转<br>handler往下传递对象的方法是sendUpstream(event)</li>
+<li>为什么FrameDecoder return的对象就是往下传递的对象  （还是调用了sendUpstream）</li>
+<li>buffer里面数据未被读取完怎么办？    （cumulation缓存）</li>
+<li>为什么return null就可以缓存buffer     （cumulation缓存）</li>
+<li>FrameDecoder里面的cumulation其实就是一个缓存的buffer对象</li>
+</ol>
+<h1 id="11_netty3_vs_netty5">11 netty3 vs netty5</h1><p>netty3                 netty4或5</p>
+<p>ChannelBuffer        ByteBuf</p>
+<p>ChannelBuffers        PooledByteBufAllocator(要注意使用完后释放buffer)或UnpooledByteBufAllocator或Unpooled</p>
+<p>FrameDecoder        ByteToMessageDecoder</p>
+<p>OneToOneEncoder        MessageToByteEncoder</p>
+<p>messageReceive        channelRead0(netty5里面是messageReceive)</p>
+<p>业务线程池</p>
+<p>EventLoopGroup 消息串行化</p>
+
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2016/02/19/java集合类/" class="alignright next" title="java集合类">java集合类</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2016/02/19/Netty知识点总结/" data-title="Netty知识点总结" data-url="http://zc14.github.io/2016/02/19/Netty知识点总结/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"http://zc14.github.io/"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" id="zc14-search-input" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zc14.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hello/">hello</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/并发编程/" style="font-size: 10px;">并发编程</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/金典/" style="font-size: 20px;">金典</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <!--
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
+		
+		<a href="http://zc14.github.io/about" target="_blank" title="周聪">周聪</a>
+		
+		</p>
+</div>
+</footer>
+  -->
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+	  _st('install','ZsQjP1Wjp4ayEpx825-R','2.0.0');
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

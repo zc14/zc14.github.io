@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>java集合类 | zc14-紫竹林</title>
+  <meta name="author" content="周聪">
+  
+  <meta name="description" content="加班...">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="java集合类"/>
+  <meta property="og:site_name" content="zc14-紫竹林"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="zc14-紫竹林" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="zc14-紫竹林" title="zc14-紫竹林"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">zc14-紫竹林</h1>
+				<h2 class="blog-motto">叽里呱啦</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	java集合类
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://zc14.github.io" title="周聪">周聪</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-02-19T12:45:40.000Z" itemprop="datePublished">2016-02-19</time>
+    更新日期:<time datetime="2016-02-19T12:47:07.210Z" itemprop="dateModified">2016-02-19</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h1 id="ArrayList源码知识点–transient_Object[]_elementData；">ArrayList源码知识点–transient Object[] elementData；</h1><h2 id="1-_add扩容">1. add扩容</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line"><span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">elementData = Arrays.copyOf(elementData, newCapacity);</span><br></pre></td></tr></table></figure>
+<h2 id="2-_Arrays-copyOf核心部分">2. Arrays.copyOf核心部分</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>类型分 <span class="keyword">Object</span>/T</span><br><span class="line">对应 <span class="keyword">new</span> <span class="keyword">Object</span>[newLength] 和 <span class="keyword">Array</span>.newInstance(newType.getComponentType(), newLength);</span><br><span class="line"><span class="number">2.</span>最终要执行数组的拷贝</span><br><span class="line">System.arraycopy(original, <span class="number">0</span>, <span class="built_in">copy</span>, <span class="number">0</span>,</span><br><span class="line">                         Math.<span class="built_in">min</span>(original.length, newLength));</span><br></pre></td></tr></table></figure>
+<h2 id="3-_Arrays-toString(str)用于输出">3. Arrays.toString(str)用于输出</h2><h2 id="4-_remove删除对象_fastRemove">4. remove删除对象 fastRemove</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.arraycopy(elementData, <span class="keyword">index</span>+<span class="number">1</span>, elementData, <span class="keyword">index</span>,</span><br><span class="line">                             numMoved)；</span><br></pre></td></tr></table></figure>
+<h2 id="5-_常用方法_add(E)/remove(E)/get(int)/contains(E)/iterator()">5. 常用方法 add(E)/remove(E)/get(int)/contains(E)/iterator()</h2><h2 id="6-_ArrayList总结">6. ArrayList总结</h2><ul>
+<li>基于数组实现</li>
+<li>容量动态增长，性能考虑，初始化时候最好指定</li>
+<li>删除元素，数组容量不会变化，可用trimToSize()做调整</li>
+<li>非线程安全</li>
+</ul>
+<p>=========================================================</p>
+<h1 id="LinkedList源码知识点–双向链表Node,next,prev;">LinkedList源码知识点–双向链表Node,next,prev;</h1><h2 id="1-_add(E)">1. add(E)</h2><p>   需要创建一个新的Node节点，并对其next,prev做好处理。</p>
+<h2 id="2-_remove(E)">2. remove(E)</h2><p>   需要遍历，取得位置后好办了，直接修改item,next,prev。</p>
+<h2 id="3-_get(int)">3. get(int)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;E&gt; node(<span class="keyword">int</span> index) &#123;</span><br><span class="line">        <span class="comment">// assert isElementIndex(index);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;<span class="comment">//0~mid中查找</span></span><br><span class="line">            Node&lt;E&gt; x = first;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">                x = x.next;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;E&gt; x = last;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt; index; i--)<span class="comment">//否则size-1 到 index中查找</span></span><br><span class="line">                x = x.prev;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">```   </span><br><span class="line"><span class="preprocessor">## <span class="number">4.</span> iterator()</span></span><br><span class="line">   通过内部类来完成ListItr</span><br><span class="line"><span class="preprocessor">## <span class="number">5.</span> contains(E)</span></span><br><span class="line">   依次遍历，没啥好说的。</span><br><span class="line"><span class="preprocessor">## <span class="number">6.</span> LinkedList总结</span></span><br><span class="line">+ 基于双向链表实现的</span><br><span class="line">+ 插入元素时，需要创建一个新的Node</span><br><span class="line">+ 删除元素时，需要遍历</span><br><span class="line">+ 查找元素时，需要遍历</span><br><span class="line">+ 非线程安全</span><br><span class="line"></span><br><span class="line">=========================================================</span><br><span class="line"><span class="preprocessor"># Vector源码知识点--protected Object[] elementData;</span></span><br><span class="line"><span class="preprocessor">## <span class="number">1.</span> add(E)核心代码</span></span><br></pre></td></tr></table></figure>
+<p>int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?<br>                                         capacityIncrement : oldCapacity);<br>```<br>取决于capacityIncrement。如果大于0，则新容量= 旧容量+capacityIncrement；否则 新容量= 2*旧容量。</p>
+<h2 id="2-_remove(E)_==_synchronized+ArrayList的remove(E)">2. remove(E) == synchronized+ArrayList的remove(E)</h2><h2 id="3-_get(int)_==_synchronized+ArrayList的get(int)">3. get(int) == synchronized+ArrayList的get(int)</h2><h2 id="4-_iterator()_==_ArrayList的iterator()">4. iterator() == ArrayList的iterator()</h2><h2 id="5-_contains(E)_==_synchronized+ArrayList的contains(E)">5. contains(E) == synchronized+ArrayList的contains(E)</h2><h2 id="6-_Vector总结">6. Vector总结</h2><ul>
+<li>synchronized的ArrayList</li>
+<li>扩容机制稍有不同。由capacityIncrement决定是增量加还是2倍长。</li>
+</ul>
+<p>=========================================================</p>
+<h1 id="Stack源码知识点–extends_Vector_LIFO">Stack源码知识点–extends Vector   LIFO</h1><h2 id="push–实际执行的是Vector中的方法">push–实际执行的是Vector中的方法</h2><h2 id="pop–peek方法+删除元素">pop–peek方法+删除元素</h2><h2 id="peek–实际执行的是Vector中的elementAt方法">peek–实际执行的是Vector中的elementAt方法</h2><h2 id="Stack总结">Stack总结</h2><ul>
+<li>基于Vector实现的</li>
+<li>支持LIFO</li>
+</ul>
+<p>=========================================================</p>
+<h1 id="HashSet–private_transient_HashMap_map;">HashSet–private transient HashMap<e,object> map;</e,object></h1><h2 id="HashSet总结">HashSet总结</h2><ul>
+<li>HashSet基于HashMap实现的，无容量限制</li>
+<li>HashSet非线程安全</li>
+</ul>
+<p>=========================================================</p>
+<h1 id="TreeSet">TreeSet</h1><h2 id="TreeSet总结">TreeSet总结</h2><ul>
+<li>TreeSet基于TreeMap实现的，支持排序</li>
+<li>TreeSet非线程安全</li>
+</ul>
+<p>=========================================================</p>
+<p>#TreeMap</p>
+<h2 id="TreeMap总结">TreeMap总结</h2><ul>
+<li>基于红黑树实现的，无容量限制</li>
+<li>非线程安全</li>
+</ul>
+<p>=========================================================</p>
+<h1 id="HashMap">HashMap</h1><p>？？？</p>
+<p>=========================================================</p>
+<h1 id="ConcurrentHashMap">ConcurrentHashMap</h1><p>？？</p>
+<p>=========================================================</p>
+<p>#CopyOnWriteArrayList</p>
+<p>=========================================================</p>
+<h1 id="CopyOnWriteSet">CopyOnWriteSet</h1><p>=========================================================</p>
+<h1 id="ArrayBlockingQueue–FIFO">ArrayBlockingQueue–FIFO</h1><p>？？</p>
+<p>=========================================================</p>
+<h1 id="ThreadPoolExecutor">ThreadPoolExecutor</h1><h2 id="创建线程池">创建线程池</h2><p>？？</p>
+<p>=========================================================</p>
+<h1 id="Executors">Executors</h1><p>=========================================================</p>
+<h1 id="FutureTask">FutureTask</h1><p>=========================================================</p>
+<h1 id="Semaphore">Semaphore</h1><h2 id="控制某资源同时被访问的个数的类">控制某资源同时被访问的个数的类</h2><p>=========================================================</p>
+<h1 id="CountDownLatch">CountDownLatch</h1><p>=========================================================</p>
+<h1 id="CyclicBarrier">CyclicBarrier</h1><h2 id="当await的数量到达了设定的数量后，才能继续往下执行。">当await的数量到达了设定的数量后，才能继续往下执行。</h2><p>=========================================================</p>
+<h1 id="ReentrantLock">ReentrantLock</h1><p>=========================================================</p>
+<h1 id="Condition">Condition</h1><h2 id="ReentrantLock-newCondition()">ReentrantLock.newCondition()</h2><p>=========================================================</p>
+<h1 id="ReentrantReadWriteLock-读写锁">ReentrantReadWriteLock-读写锁</h1><p>？？</p>
+<p>=========================================================</p>
+
+    </div>
+    <footer>
+        
+        
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2016/02/19/Netty知识点总结/" class="alignleft prev" title="Netty知识点总结">Netty知识点总结</a>
+    
+    
+    <a href="/2016/01/23/面试知识点准备/" class="alignright next" title="面试知识点准备">面试知识点准备</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2016/02/19/java集合类/" data-title="java集合类" data-url="http://zc14.github.io/2016/02/19/java集合类/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"http://zc14.github.io/"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" id="zc14-search-input" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zc14.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hello/">hello</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/并发编程/" style="font-size: 10px;">并发编程</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/金典/" style="font-size: 20px;">金典</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <!--
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
+		
+		<a href="http://zc14.github.io/about" target="_blank" title="周聪">周聪</a>
+		
+		</p>
+</div>
+</footer>
+  -->
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+	  _st('install','ZsQjP1Wjp4ayEpx825-R','2.0.0');
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
