@@ -161,11 +161,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[面试知识点准备]]></title>
+    <title><![CDATA[java基础知识点准备]]></title>
     <link href="http://zc14.github.io/2016/01/23/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E5%87%86%E5%A4%87/"/>
     <id>http://zc14.github.io/2016/01/23/java基础知识点准备/</id>
     <published>2016-01-23T09:28:22.000Z</published>
-    <updated>2016-01-28T07:58:10.998Z</updated>
+    <updated>2016-02-20T03:22:36.572Z</updated>
     <content type="html"><![CDATA[<h2 id="1-知识点总结">1.知识点总结</h2><ul>
 <li><h3 id="常见面试题整理">常见面试题整理</h3><p>1.Aio和Nio区别<br>  <strong>NIO:同步非阻塞；AIO:异步非阻塞</strong><br>  <strong>同步异步是指是否是同一次请求（便于理解，举个例子）。阻塞和非阻塞就是oio和nio的问题，指的是调用一个方法能否立即返回结果。</strong><br>  <em>如果把内核比作快递，NIO就是你要自己时不时到官网查下快递是否已经到了你所在城市，然后自己去取快递；AIO就是快递员送货上门了。</em></p>
 <p>2.你做过最得意的项目是什么<br>  <strong>必须想办法突出项目的亮点，并且突出自己在团队中的重要性。</strong></p>
